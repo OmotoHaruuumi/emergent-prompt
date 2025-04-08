@@ -1,0 +1,5 @@
+*/save-output/
+myenv/
+*.pth
+*.pt
+*.ckpt

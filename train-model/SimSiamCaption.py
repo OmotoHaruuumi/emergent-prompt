@@ -71,6 +71,7 @@ class SimSiamVLM(nn.Module):
         #image_latent is (5,768)
         #prefix_embed is (5,10,768),この768はgpt2の潜在空間が768,入力の次元の768とは無関係
         prefix_embeds = self.clip_project(image_latent).view(-1,self.prefix_length,self.gpt_embedding_size)
+        teacher_prefix = prefix_embeds
         probs = []
         teacher_probs = []
         #単語から埋め込みに変換する行列
@@ -78,23 +79,30 @@ class SimSiamVLM(nn.Module):
         messages_ids = None
         for i in range(max_length):
             outputs = self.gpt(inputs_embeds=prefix_embeds)
-            teacher_outputs = self.prior(inputs_embeds=prefix_embeds) 
+            with torch.no_grad():
+                teacher_outputs = self.prior(inputs_embeds=teacher_prefix) 
             logit = outputs.logits[:,-1,:] #最後の一文字に続く単語の確率分布を予測する
             teacher_logit = teacher_outputs.logits[:,-1,:]
+            logit = logit - logit.max(dim=-1, keepdim=True)[0]
+            teacher_logit = teacher_logit - teacher_logit.max(dim=-1, keepdim=True)[0]
             if self.training:
                 z_sampled_soft = gumbel_softmax(logit,1.0)
             else:
-                z_sampled_soft = F.log_softmax(logit,dim=-1)
+                z_sampled_soft = F.softmax(logit,dim=-1)
+            teacher_soft = F.log_softmax(teacher_logit,dim=-1)
             probs.append(z_sampled_soft)    
-            teacher_probs.append(torch.softmax(teacher_logit,dim=-1))
+            teacher_probs.append(teacher_soft)
             z_sampled_onehot, next_word = straight_through_discretize(z_sampled_soft)
+            teacher_sampled_onehot,_ = straight_through_discretize(teacher_soft) 
             #gpt2_wteは語彙数×データの次元の形状をした行列,next_token_embed[batch,1,768]
             next_token_embed = (z_sampled_onehot @  gpt2_wte).unsqueeze(1)
+            teacher_next_token_embed = (teacher_sampled_onehot @ gpt2_wte).unsqueeze(1)
             if messages_ids is None:
                 messages_ids = next_word
             else:
                 messages_ids = torch.cat((messages_ids,next_word),dim=1)
             prefix_embeds = torch.cat((prefix_embeds,next_token_embed),dim=1)
+            teacher_prefix = torch.cat((teacher_prefix,teacher_next_token_embed),dim=1)
         #最初の10要素は画像の埋め込み表現なので除外する
         outputs_embeds = prefix_embeds[:,10:,]
         probs = torch.stack(probs).permute(1,0,2)

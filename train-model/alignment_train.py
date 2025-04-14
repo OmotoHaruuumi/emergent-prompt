@@ -22,20 +22,20 @@ def args_define():
     parser.add_argument('--use-recon-loss',type=bool,default=True,help='use recon loss or not if not using simsiam this is True automatically')
     parser.add_argument('--use-proj', type=bool, default=False, metavar='us', help='use projctor or not')
     parser.add_argument('--clip-vision-adapter-late',type=float,default=0.2,help='clip adapter late if clip_vison_model is freeze this variavle is 0')
-    parser.add_argument('--kld-loss-beta',type=float,default=1.0,help='kld loss beta if not using kld loss this parameter is 0')
+    parser.add_argument('--kld-loss-beta',type=float,default=0.0005,help='kld loss beta if not using kld loss this parameter is 0')
     parser.add_argument('--word-length', type=int, default=15, metavar='L', help='word dimensionality (default: 10)')
     parser.add_argument('--dictionary-size', type=int, default=50257, metavar='L', help='dictionary size (default: 100)')
     parser.add_argument('--latent-dim', type=int, default=768 ,metavar='ld', help='dimension of image encoder text encoder output')
     parser.add_argument('-hidden-dim', type=int, default=2048 ,metavar='hd', help='dimension of ')
     parser.add_argument('--epochs', type=int, default=10,metavar='N', help='No of epochs of naming game [default: 100]')
-    parser.add_argument('--batch_size', type=int, default=8, metavar='N', help='batch size of model [default: 64]')
+    parser.add_argument('--batch_size', type=int, default=4, metavar='N', help='batch size of model [default: 64]')
     parser.add_argument('--dataset_size', type=int, default=5000, metavar='ds', help='dataset size of model max[81783]')
     parser.add_argument('--save_every', type=int, default=1 ,metavar='se',help='number of epochs which save model [default:10]')
-    parser.add_argument('--learning-rate', type=float, default=5e-6 ,metavar='LR', help='learning rate [default: 1e-3]')
+    parser.add_argument('--learning-rate', type=float, default=1e-5 ,metavar='LR', help='learning rate [default: 1e-3]')
     parser.add_argument('--gpt-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt", help='directory for pretrained gpt models')
     parser.add_argument('--clip-to-gpt-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt", help='directory for pretrained gpt adapter models')
     parser.add_argument('--translator-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt", help='directory for pretrained translator models')
-    parser.add_argument('--device', type=str, default='mps', help='device for training [mps, cuda, cpu]')
+    parser.add_argument('--device', type=str, default='cuda', help='device for training [mps, cuda, cpu]')
     parser.add_argument('--debug', type=bool, default=False, help='debug vs running')
     parser.add_argument('--prefix',type=str,default='trained-model',help='prefix for saved filenames')
     parser.add_argument('--out-dir', default='/root/emergent-prompt/save-output')
@@ -55,7 +55,7 @@ def initialize(args):
     runPath = mkdtemp(prefix=runId, dir=str(experiment_dir))
     print('Expt:', runPath)
     print('RunID:', runId)
-    args.out_dir=os.path.join(args.out_dir,'output.txt')
+    args.out_dir=os.path.join(args.out_dir,args.setting_name)
     return runPath
 
 
@@ -64,6 +64,13 @@ def negative_cosine_similarity(x, y):
         y = F.normalize(y, dim=-1)
         return - (x * y).sum(dim=-1).mean()
 
+#teacher_probs must be applied log_softmax
+def KLD_loss(probs,teacher_probs):
+        if torch.isnan(probs).any():
+            print("probs NaN detected!")
+        if torch.isnan(teacher_probs).any():
+            print("teacher NaN detected")
+        return F.kl_div(teacher_probs,probs,reduction="batchmean")
 
 def loss_fn(probsA,probsB,pre_latentA,pre_latentB,latentA,latentB, pre_latent_reconA,pre_latent_reconB,latent_reconA, latent_reconB,dictionary_size,device,use_sim=True,use_rec=True,beta=1.0,teacher_probsA=None,teacher_probsB=None):
     
@@ -75,9 +82,6 @@ def loss_fn(probsA,probsB,pre_latentA,pre_latentB,latentA,latentB, pre_latent_re
         kl = torch.distributions.kl_divergence(logits_dist, prior_dist)
         return kl.sum(1).mean()
     """
-
-    def compute_KLD_loss(probs,teacher_probs):
-        return F.kl_div(probs, teacher_probs, reduction="batchmean")
     
     loss_sim = 0
     loss_kld = 0
@@ -90,8 +94,8 @@ def loss_fn(probsA,probsB,pre_latentA,pre_latentB,latentA,latentB, pre_latent_re
 
 
     if beta!=0:
-        loss_kldA = compute_KLD_loss(probsA,teacher_probsA)
-        loss_kldB = compute_KLD_loss(probsB,teacher_probsB)
+        loss_kldA = KLD_loss(probsA,teacher_probsA)
+        loss_kldB = KLD_loss(probsB,teacher_probsB)
         loss_kld = loss_kldA/2 + loss_kldB/2
     
     
@@ -105,15 +109,12 @@ def loss_fn(probsA,probsB,pre_latentA,pre_latentB,latentA,latentB, pre_latent_re
     return total_loss, loss_sim, loss_recon, loss_kld
 
 def loss_fn_single(probsA,pre_latentA, pre_latent_reconA,dictionary_size,device,use_sim=True,use_rec=True,beta=1.0,teacher_probsA=None):
-    def compute_KLD_loss(probs,teacher_probs):
-        return F.kl_div(probs, teacher_probs, reduction="batchmean")
-    
     loss_sim = 0
     loss_kld = 0
     loss_recon = 0
 
     if beta!=0:
-        loss_kld = compute_KLD_loss(probsA,teacher_probsA)
+        loss_kld = KLD_loss(probsA,teacher_probsA)
     
     if use_rec:
         loss_recon = negative_cosine_similarity(pre_latentA, pre_latent_reconA)
@@ -163,7 +164,7 @@ def train(dataset,val_dataset,device,param_group,model,args):
         model.eval()
         with torch.no_grad():
             pre_image_latent = model.image_encode(val_data)
-            message_ids,token_embeds,probs,teacher_probs = model.text_decode(pre_image_latent)
+            message_ids,token_embeds,probs,_ = model.text_decode(pre_image_latent)
             pre_text_latent = model.text_encode(message_ids,token_embeds)
             for i in range(len(val_data)):
                 message=message_ids[i:i+1,:]
@@ -182,12 +183,13 @@ def train(dataset,val_dataset,device,param_group,model,args):
             print(-negative_cosine_similarity(pre_image_latent[0],pre_text_latent[3]).item())
             print("unpair text latent")
             print(-negative_cosine_similarity(pre_text_latent[0],pre_text_latent[3]).item())
+            del pre_image_latent,message_ids,token_embeds,probs,pre_text_latent
 
         for dataA,dataB in data_loader:
             model.train()
             optimizer.zero_grad()
             dataA=dataA.to(device)
-            dataB=dataB.to(device)
+            #dataB=dataB.to(device)
             pre_image_latentA,image_latentA,pre_text_latentA,text_latentA,probsA,teacher_probsA = model(dataA,use_proj=args.use_proj)
             #pre_image_latentB,image_latentB,pre_text_latentB,text_latentB,probsB,teacher_probsB = model(dataB,use_proj=args.use_proj)
             if args.use_simsiam:
@@ -200,12 +202,12 @@ def train(dataset,val_dataset,device,param_group,model,args):
                 loss,loss_similarity,loss_recon,loss_kld = loss_fn(probsA,probsB,pre_image_latentA,pre_image_latentB,pre_image_latentA,pre_image_latentB,pre_text_latentA,pre_text_latentB,pre_text_latentA, pre_text_latentB,args.dictionary_size,device,use_sim=args.use_simsiam,use_rec=args.use_recon_loss, beta=args.kld_loss_beta,teacher_probsA=teacher_probsA,teacher_probsB=teacher_probsB)
             """
             loss,loss_similarity,loss_recon,loss_kld = loss_fn_single(probsA,pre_image_latentA,pre_text_latentA,args.dictionary_size,device,use_sim=args.use_simsiam,use_rec=args.use_recon_loss, beta=args.kld_loss_beta,teacher_probsA=teacher_probsA)
+            loss.backward()
+            optimizer.step()
             train_loss += loss
             recon_loss += loss_recon
             similarity_loss += loss_similarity
             kld_loss += loss_kld
-            #loss.backward()
-            #optimizer.step()
         
         print("eval_start")
         recon=0
@@ -341,11 +343,11 @@ def main():
     args.run_path = initialize(args) + '/'
     print(torch.cuda.memory_allocated())
     if not args.debug:
-        sys.stdout = open(os.path.join(args.out_txt,'output.txt'),'w')
-    device = torch.device('cuda:1')
-    torch.cuda.empty_cache()
+        sys.stdout = open(os.path.join(args.out_txt,args.setting_name+'-output.txt'),'w')
+    device = torch.device('cuda:3')
     model = SimSiamVLM(word_length=args.word_length,latent_dim=args.latent_dim,hidden_dim=args.hidden_dim,image_enc_freeze=args.image_enc_freeze,vision_adapter_rate=args.clip_vision_adapter_late)
     model.gpt.load_state_dict(torch.load(args.gpt_path,weights_only=True))
+    model.prior.load_state_dict(torch.load(args.gpt_path,weights_only=True))
     model.clip_project.load_state_dict(torch.load(args.clip_to_gpt_path,weights_only=True))
     model.translator.load_state_dict(torch.load(args.translator_path,weights_only=True))
 
@@ -363,7 +365,6 @@ def main():
     # モデルをLoRAでラップ
     model.gpt=get_peft_model(model.gpt, lora_config) 
     model.to(device)
-    print(torch.cuda.memory_allocated())
     dataset=trainDataset(length=args.dataset_size,augment=True)
     val_dataset = valDataset(start_index=args.dataset_size)
 

@@ -69,7 +69,7 @@ def display_losses(loss1, loss2=None, save_path=None):
 def gumbel_softmax(logits, temperature=0.5):
     g = torch.distributions.gumbel.Gumbel(torch.zeros_like(logits), torch.ones_like(logits))
     G = g.sample()
-    return F.log_softmax((logits + G) / temperature, dim=-1)
+    return F.softmax((logits + G) / temperature, dim=-1)
 
 
 def straight_through_discretize(z_sampled_soft):

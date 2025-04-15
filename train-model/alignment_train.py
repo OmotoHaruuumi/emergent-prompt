@@ -347,7 +347,7 @@ def main():
     device = torch.device('cuda:3')
     model = SimSiamVLM(word_length=args.word_length,latent_dim=args.latent_dim,hidden_dim=args.hidden_dim,image_enc_freeze=args.image_enc_freeze,vision_adapter_rate=args.clip_vision_adapter_late)
     model.gpt.load_state_dict(torch.load(args.gpt_path,weights_only=True))
-    model.prior.load_state_dict(torch.load(args.gpt_path,weights_only=True))
+    #model.prior.load_state_dict(torch.load(args.gpt_path,weights_only=True))
     model.clip_project.load_state_dict(torch.load(args.clip_to_gpt_path,weights_only=True))
     model.translator.load_state_dict(torch.load(args.translator_path,weights_only=True))
 

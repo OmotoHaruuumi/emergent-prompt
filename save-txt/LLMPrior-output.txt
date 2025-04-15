@@ -1,17 +1,17 @@
-args:Namespace(text_enc_freeze=True, image_enc_freeze=True, use_simsiam=False, use_recon_loss=True, use_proj=False, clip_vision_adapter_late=0.2, kld_loss_beta=0.0005, word_length=15, dictionary_size=50257, latent_dim=768, hidden_dim=2048, epochs=20, batch_size=4, dataset_size=10000, save_every=1, learning_rate=1e-05, gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt', clip_to_gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt', translator_path='/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt', device='cuda', debug=False, prefix='trained-model', out_dir='/root/emergent-prompt/save-output/LLMPrior', out_txt='/root/emergent-prompt/save-txt', setting_name='LLMPrior', run_path='experiments/2025-04-11T07:54:16.04111270f4f5ij/')
-[{'params': <generator object Module.parameters at 0x7f036dfe13f0>, 'lr': 1e-05}]
-dataset length is 10000
+args:Namespace(text_enc_freeze=True, image_enc_freeze=True, use_simsiam=False, use_recon_loss=True, use_proj=False, clip_vision_adapter_late=0.2, kld_loss_beta=0.0005, word_length=15, dictionary_size=50257, latent_dim=768, hidden_dim=2048, epochs=10, batch_size=4, dataset_size=5000, save_every=1, learning_rate=1e-05, gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt', clip_to_gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt', translator_path='/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt', device='cuda', debug=False, prefix='trained-model', out_dir='/root/emergent-prompt/save-output/LLMPrior', out_txt='/root/emergent-prompt/save-txt', setting_name='LLMPrior', run_path='experiments/2025-04-14T23:18:50.912974lj143cbr/')
+[{'params': <generator object Module.parameters at 0x7f6b63924ac0>, 'lr': 1e-05}]
+dataset length is 5000
 epoch0start
 Two men in a green yard playing with a frisbee.  
+Two men standing in a garden with a white object.    
 Two people are walking through a garden together.      
-Two men in a garden with a frisbee.    
 A crane is lifting a person up into the air.    
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
 0.253468781709671
 pair text latent
-0.660081684589386
+0.5675653219223022
 unpair image latent
 0.5413997173309326
 different image and text latent
@@ -20,619 +20,6920 @@ unpair text latent
 0.3701286315917969
 eval_start
 recon
--0.24015939712524415
+-0.2486884900033474
 simsiam
--0.23574363582581281
+-0.24063301008939744
 message entropy
-4.598785892740885
+4.601496595255534
 image_collapse
-0.3529878821477972
+0.36161978902060876
 text_collapse
-0.33804723926214986
- Avg Loss: -0.1934, SimSiam Loss: 0.0000, KLD Loss: 80.2639, Recon Loss: -0.2335
+0.24585979737518304
+ Avg Loss: -0.2029, SimSiam Loss: 0.0000, KLD Loss: 54.9246, Recon Loss: -0.2303
 model saved
 epoch1start
-A man standing in a          
-A man walking            
-A man standing in a          
-A crane working on a crane         
+Two men in a green garden with a white object in their hands. 
+Two men in a garden with a white object in their hands.  
+A man and a woman are walking through a garden.    
+A crane is lifting a man in a crane.     
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.1581178605556488
+0.2626309096813202
 pair text latent
-0.8674139380455017
+0.5944989323616028
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.09573923796415329
+0.13213014602661133
 unpair text latent
-0.5794719457626343
+0.30306145548820496
 eval_start
 recon
--0.24325326254963875
+-0.24001336443424226
 simsiam
--0.23753241215646267
+-0.23588278267532586
 message entropy
-4.59864211730957
+4.601554060872396
 image_collapse
-0.3560924118778672
+0.3647575614746229
 text_collapse
-0.3278129711522727
- Avg Loss: -0.2086, SimSiam Loss: 0.0000, KLD Loss: 60.3015, Recon Loss: -0.2387
+0.3153825152583547
+ Avg Loss: -0.2102, SimSiam Loss: 0.0000, KLD Loss: 49.5060, Recon Loss: -0.2349
 model saved
 epoch2start
-A young man standing in a green        
-A man in a  a         
-A man standing in a          
-A crane working in a crane working in a      
+A man in a green area with a person in a white area, a
+A man in a green and white image, a man in a black and
+A man in a park with a young man in a small area, a
+A crane is being lifted by a worker in a construction area.
+
+
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.18133912980556488
+0.21421830356121063
 pair text latent
-0.9297194480895996
+0.5763368606567383
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.08980199694633484
+0.12098832428455353
 unpair text latent
-0.3720270097255707
+0.37444618344306946
 eval_start
 recon
--0.24398726338148116
+-0.22824615105986595
 simsiam
--0.2379425897449255
+-0.22798438416421413
 message entropy
-4.598570929972331
+4.600901069132487
 image_collapse
-0.35502787042461026
+0.35837289371190895
 text_collapse
-0.3307649663338108
- Avg Loss: -0.2120, SimSiam Loss: 0.0000, KLD Loss: 59.2564, Recon Loss: -0.2417
+0.39080726197741344
+ Avg Loss: -0.2052, SimSiam Loss: 0.0000, KLD Loss: 47.7266, Recon Loss: -0.2290
 model saved
 epoch3start
-A young man standing in a green        
-A man walking in a a a a       
-A man standing in a  a        
-A crane working in a work lift        
+A person in a motion of a person in a motion of a person in
+A man in a garden, a man in a walk-in-the
+A person in a motion of a person in a motion of a person in
+A group of workers in a crane, in a construction area.
+
+
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.18133912980556488
+0.1908385008573532
 pair text latent
-0.8784332275390625
+0.6319848299026489
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.06711320579051971
+0.09218645095825195
 unpair text latent
-0.3368188738822937
+0.3559440076351166
 eval_start
 recon
--0.23878244202584029
+-0.22173623087257147
 simsiam
--0.2357692233324051
+-0.22120832633972168
 message entropy
-4.598446892293294
+4.600246678670247
 image_collapse
-0.35708664806713086
+0.35775124445032846
 text_collapse
-0.3474040852887966
- Avg Loss: -0.2115, SimSiam Loss: 0.0000, KLD Loss: 58.3221, Recon Loss: -0.2407
+0.41559399706601396
+ Avg Loss: -0.1999, SimSiam Loss: 0.0000, KLD Loss: 45.7954, Recon Loss: -0.2228
 model saved
 epoch4start
-A young men standing in a green        
-A man walking a a a a a       
-A couple standing in a a a a       
-A crane working on a lift in a       
+
+
+A person in a motion of a person in a motion of a
+
+
+A young man in a small, but active, motion-based
+
+
+A person in a motion image, a person in a motion image
+A group of workers in a crane, a group of workers in a crane
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.2020317018032074
+0.17579086124897003
 pair text latent
-0.733660876750946
+0.8394972681999207
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.07093457132577896
+0.08421051502227783
 unpair text latent
-0.34320735931396484
+0.4035590887069702
 eval_start
 recon
--0.23973042146861553
+-0.225675165399909
 simsiam
--0.23669353222846984
+-0.2255941370278597
 message entropy
-4.598304741414388
+4.599953000895182
 image_collapse
-0.35541336213643315
+0.360767453837746
 text_collapse
-0.34880714503960775
- Avg Loss: -0.2116, SimSiam Loss: 0.0000, KLD Loss: 57.8880, Recon Loss: -0.2406
+0.40231574847325036
+ Avg Loss: -0.2008, SimSiam Loss: 0.0000, KLD Loss: 44.3562, Recon Loss: -0.2230
 model saved
 epoch5start
-A young men standing in a green        
-A man walking in a a a a       
-A young men standing in a a a       
-A crane working on a lift in a       
+
+
+A young man in a green area, a young man in a
+
+
+A young man is in a garden, a young man is in
+
+
+A person in a small, small, small, small, small
+
+A group of workers are working in a crane, while a helicopter is
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.2020317018032074
+0.22997832298278809
 pair text latent
-0.7872613668441772
+0.6864630579948425
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.07093457132577896
+0.1104220524430275
 unpair text latent
-0.34320735931396484
+0.34447377920150757
 eval_start
 recon
--0.24248588575422764
+-0.2306906628012657
 simsiam
--0.2391774744093418
+-0.22917327692359685
 message entropy
-4.598399342854818
+4.600182948811849
 image_collapse
-0.3574204690232581
+0.36083719129123726
 text_collapse
-0.3372102865819817
- Avg Loss: -0.2136, SimSiam Loss: 0.0000, KLD Loss: 58.1826, Recon Loss: -0.2427
+0.386154777580211
+ Avg Loss: -0.2024, SimSiam Loss: 0.0000, KLD Loss: 44.3749, Recon Loss: -0.2246
 model saved
 epoch6start
-A young men standing in a green grass       
-A man walking in a a a a       
-A young men standing in a a a       
-A crane working on a lift lifting a a      
+
+
+A young man is attempting to use a green object to propel a
+
+A young man is attempting to use a walk-in-the-
+
+A young man is seen in a small, small, small, small
+:
+
+A crane is being used to lift a crane.
+
+
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.21849919855594635
+0.21306124329566956
 pair text latent
-0.7872613668441772
+0.7979350090026855
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.0784359723329544
+0.11859982460737228
 unpair text latent
-0.23802101612091064
+0.5087822675704956
 eval_start
 recon
--0.2390925730764866
+-0.22980555371940137
 simsiam
--0.23575860176980495
+-0.22799799525737763
 message entropy
-4.598192714436849
+4.599951610310872
 image_collapse
-0.35561529619865206
+0.3612795156724117
 text_collapse
-0.3519312384224337
- Avg Loss: -0.2125, SimSiam Loss: 0.0000, KLD Loss: 58.1421, Recon Loss: -0.2416
+0.387093007006308
+ Avg Loss: -0.2030, SimSiam Loss: 0.0000, KLD Loss: 44.4169, Recon Loss: -0.2252
 model saved
 epoch7start
-A young men standing in a a a a      
-A young men walking in a a a a      
-A young men standing in a a a       
-A workers working on a crane lifting a a      
+
+
+A young man is attempting to use a green object to propel a
+
+A young man is attempting to use a walk-in-the-
+
+A video image of a person in a small, small, small,
+: A crane, a crane, a crane, a crane, a crane
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.1917761266231537
+0.21306124329566956
 pair text latent
-0.8575851917266846
+0.6858646273612976
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.11574135720729828
+0.12086927890777588
 unpair text latent
-0.5072281956672668
+0.47261202335357666
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
 eval_start
 recon
--0.23692487651109695
+nan
 simsiam
--0.23402344699203967
+nan
 message entropy
-4.59809855855306
+nan
 image_collapse
-0.3575550401122676
+0.3612610876406601
 text_collapse
-0.3647720148328595
- Avg Loss: -0.2115, SimSiam Loss: 0.0000, KLD Loss: 57.7216, Recon Loss: -0.2404
+0
+ Avg Loss: nan, SimSiam Loss: 0.0000, KLD Loss: nan, Recon Loss: nan
 model saved
 epoch8start
-A young men standing in a a a a      
-A young man walking in a a a a      
-A young men standing in a a a       
-A workers lift lifting a crane in a       
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.1917761266231537
+nan
 pair text latent
-0.8548980951309204
+nan
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.12088106572628021
+nan
 unpair text latent
-0.5156203508377075
+nan
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
 eval_start
 recon
--0.23716039794683458
+nan
 simsiam
--0.23441784135997296
+nan
 message entropy
-4.598154631551107
+nan
 image_collapse
-0.3571342925301748
+0.3652902709639122
 text_collapse
-0.3637368446683046
- Avg Loss: -0.2134, SimSiam Loss: 0.0000, KLD Loss: 57.8494, Recon Loss: -0.2423
+0
+ Avg Loss: nan, SimSiam Loss: 0.0000, KLD Loss: nan, Recon Loss: nan
 model saved
 epoch9start
-A young men standing in a a a a      
-A young man attempting a a a a a      
-A young men standing in a a a a      
-A workers lift working on a crane working       
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.1917761266231537
+nan
 pair text latent
-0.8965190649032593
+nan
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.10639648139476776
+nan
 unpair text latent
-0.5289806127548218
+nan
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
+probs NaN detected!
+teacher NaN detected
 eval_start
 recon
--0.2410194875150919
+nan
 simsiam
--0.23676292923092843
+nan
 message entropy
-4.598167903645833
+nan
 image_collapse
-0.35503416795927045
+0.3626472679338164
 text_collapse
-0.35420026080815925
- Avg Loss: -0.2134, SimSiam Loss: 0.0000, KLD Loss: 57.6004, Recon Loss: -0.2422
+0
+ Avg Loss: nan, SimSiam Loss: 0.0000, KLD Loss: nan, Recon Loss: nan
 model saved
-epoch10start
-A young men standing in a a a a      
-A young man walking in a a a a      
-A young men standing in a a a a      
-A crane working on a lift in a       
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
+!!!!!!!!!!!!!!!
 pair image latent
-0.8959511518478394
+0.8518357872962952
 same image and text latent
-0.1917761266231537
+nan
 pair text latent
-0.8532997369766235
+nan
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.07093457132577896
+nan
 unpair text latent
-0.468993604183197
-eval_start
-recon
--0.23830882178246976
-simsiam
--0.23444557583332062
-message entropy
-4.598118258666992
-image_collapse
-0.35782046571245407
-text_collapse
-0.36351095932672217
- Avg Loss: -0.2154, SimSiam Loss: 0.0000, KLD Loss: 57.5506, Recon Loss: -0.2442
-model saved
-epoch11start
-A men standing in a a a a a      
-A young man walking in a a a a      
-A young men standing in a a a a      
-A workers lift working on a crane in a      
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.8532997369766235
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.10142600536346436
-unpair text latent
-0.5401153564453125
-eval_start
-recon
--0.2412437891960144
-simsiam
--0.2367862928211689
-message entropy
-4.598259259033203
-image_collapse
-0.35446847384172
-text_collapse
-0.34528290011017615
- Avg Loss: -0.2150, SimSiam Loss: 0.0000, KLD Loss: 57.2810, Recon Loss: -0.2437
-model saved
-epoch12start
-A men standing in a a a a a      
-A man attempting a a a a a a      
-A men standing in a a a a       
-A crane working on a lift in a       
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.8578856587409973
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.07093457132577896
-unpair text latent
-0.49450331926345825
-eval_start
-recon
--0.24253001235425473
-simsiam
--0.23757494281232358
-message entropy
-4.598242727661133
-image_collapse
-0.3577795317371628
-text_collapse
-0.3435016785649335
- Avg Loss: -0.2160, SimSiam Loss: 0.0000, KLD Loss: 57.0700, Recon Loss: -0.2445
-model saved
-epoch13start
-A men standing in a a a a a      
-A man and a approaching a a a a      
-Two men standing in a a a a       
-A crane working on a lift lifting a a      
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.7946306467056274
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.0784359723329544
-unpair text latent
-0.47788724303245544
-eval_start
-recon
--0.246097589045763
-simsiam
--0.24144960503280163
-message entropy
-4.598393175252279
-image_collapse
-0.35516393846857985
-text_collapse
-0.32856893340717974
- Avg Loss: -0.2174, SimSiam Loss: 0.0000, KLD Loss: 57.1642, Recon Loss: -0.2459
-model saved
-epoch14start
-A men standing in a a a a a      
-A persons attempting a a a a a a      
-Two men attempting a a a a a a      
-A workers lift scaff scaff working under a a      
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.8626362085342407
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.10295506566762924
-unpair text latent
-0.5204678773880005
-eval_start
-recon
--0.24435937777161598
-simsiam
--0.2419399397969246
-message entropy
-4.598227552286784
-image_collapse
-0.35833572793358637
-text_collapse
-0.3320787765975114
- Avg Loss: -0.2169, SimSiam Loss: 0.0000, KLD Loss: 57.3025, Recon Loss: -0.2455
-model saved
-epoch15start
-A men standing in a green a a a      
-A man and a attempting a a a a      
-Two men standing in a a a a a      
-A group of workers working on a crane lift      
-pair image latent
-0.8959511518478394
-same image and text latent
-0.19659927487373352
-pair text latent
-0.8395439386367798
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.09377340227365494
-unpair text latent
-0.3729168176651001
-eval_start
-recon
--0.2470706311315298
-simsiam
--0.2422240263968706
-message entropy
-4.5983619750976565
-image_collapse
-0.35621485246978535
-text_collapse
-0.32784105196256075
- Avg Loss: -0.2177, SimSiam Loss: 0.0000, KLD Loss: 57.4814, Recon Loss: -0.2465
-model saved
-epoch16start
-A men standing in a a a a a      
-A person attempting a walking in a a a      
-Two men attempting a a a a a a      
-A group of workers working on a crane lift      
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.7073867321014404
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.09377340227365494
-unpair text latent
-0.5101578235626221
-eval_start
-recon
--0.24027218826115132
-simsiam
--0.23477191293239594
-message entropy
-4.598108279418946
-image_collapse
-0.35746852643939464
-text_collapse
-0.35364566480496895
- Avg Loss: -0.2167, SimSiam Loss: 0.0000, KLD Loss: 57.3129, Recon Loss: -0.2453
-model saved
-epoch17start
-A men standing in a a a a a      
-A persons attempting a a a a a a      
-A men attempting a a a a a a      
-A workers working on a crane lift lift working      
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.931017279624939
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.08989374339580536
-unpair text latent
-0.519048273563385
-eval_start
-recon
--0.24687645541876554
-simsiam
--0.24216728554666042
-message entropy
-4.59837009379069
-image_collapse
-0.3583816689651239
-text_collapse
-0.3284018938812747
- Avg Loss: -0.2169, SimSiam Loss: 0.0000, KLD Loss: 57.4698, Recon Loss: -0.2456
-model saved
-epoch18start
-A men standing in a a a a a      
-A young attempting walking in a a a a      
-Two men attempting a gardening a a a       
-A men working on a crane lift working       
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.5435213446617126
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.10009326040744781
-unpair text latent
-0.5748819708824158
-eval_start
-recon
--0.24195813500881194
-simsiam
--0.23730967622995378
-message entropy
-4.598123075358073
-image_collapse
-0.35804568000526116
-text_collapse
-0.3488118940001712
- Avg Loss: -0.2178, SimSiam Loss: 0.0000, KLD Loss: 57.3856, Recon Loss: -0.2465
-model saved
-epoch19start
-A men standing in a a a a a      
-A person attempting a a a a a a      
-Two men standing in a a a a a      
-A men working on a crane lift working       
-pair image latent
-0.8959511518478394
-same image and text latent
-0.18589867651462555
-pair text latent
-0.7571634650230408
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.10009326040744781
-unpair text latent
-0.5748819708824158
-eval_start
-recon
--0.25022737773507836
-simsiam
--0.24288832761347293
-message entropy
-4.598279015096028
-image_collapse
-0.357802450633795
-text_collapse
-0.31351668994829185
- Avg Loss: -0.2176, SimSiam Loss: 0.0000, KLD Loss: 57.2598, Recon Loss: -0.2462
-model saved
-Two men standing in a green grass a       
-A young attempting and a a a a a      
-Two men standing in a a a a a      
-A men working on a crane lift working       
-pair image latent
-0.8959511518478394
-same image and text latent
-0.24510757625102997
-pair text latent
-0.7483975291252136
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.10009326040744781
-unpair text latent
-0.3612642288208008
+nan
 val_data recon loss history
-[-0.24015939712524415, -0.24325326254963875, -0.24398726338148116, -0.23878244202584029, -0.23973042146861553, -0.24248588575422764, -0.2390925730764866, -0.23692487651109695, -0.23716039794683458, -0.2410194875150919, -0.23830882178246976, -0.2412437891960144, -0.24253001235425473, -0.246097589045763, -0.24435937777161598, -0.2470706311315298, -0.24027218826115132, -0.24687645541876554, -0.24195813500881194, -0.25022737773507836]
+[-0.2486884900033474, -0.24001336443424226, -0.22824615105986595, -0.22173623087257147, -0.225675165399909, -0.2306906628012657, -0.22980555371940137, nan, nan, nan]
 val_data simsiam loss history
-[-0.23574363582581281, -0.23753241215646267, -0.2379425897449255, -0.2357692233324051, -0.23669353222846984, -0.2391774744093418, -0.23575860176980495, -0.23402344699203967, -0.23441784135997296, -0.23676292923092843, -0.23444557583332062, -0.2367862928211689, -0.23757494281232358, -0.24144960503280163, -0.2419399397969246, -0.2422240263968706, -0.23477191293239594, -0.24216728554666042, -0.23730967622995378, -0.24288832761347293]
+[-0.24063301008939744, -0.23588278267532586, -0.22798438416421413, -0.22120832633972168, -0.2255941370278597, -0.22917327692359685, -0.22799799525737763, nan, nan, nan]
 val entorpy history
-[4.598785892740885, 4.59864211730957, 4.598570929972331, 4.598446892293294, 4.598304741414388, 4.598399342854818, 4.598192714436849, 4.59809855855306, 4.598154631551107, 4.598167903645833, 4.598118258666992, 4.598259259033203, 4.598242727661133, 4.598393175252279, 4.598227552286784, 4.5983619750976565, 4.598108279418946, 4.59837009379069, 4.598123075358073, 4.598279015096028]
+[4.601496595255534, 4.601554060872396, 4.600901069132487, 4.600246678670247, 4.599953000895182, 4.600182948811849, 4.599951610310872, nan, nan, nan]
 image collapse level history
-[0.3529878821477972, 0.3560924118778672, 0.35502787042461026, 0.35708664806713086, 0.35541336213643315, 0.3574204690232581, 0.35561529619865206, 0.3575550401122676, 0.3571342925301748, 0.35503416795927045, 0.35782046571245407, 0.35446847384172, 0.3577795317371628, 0.35516393846857985, 0.35833572793358637, 0.35621485246978535, 0.35746852643939464, 0.3583816689651239, 0.35804568000526116, 0.357802450633795]
+[0.36161978902060876, 0.3647575614746229, 0.35837289371190895, 0.35775124445032846, 0.360767453837746, 0.36083719129123726, 0.3612795156724117, 0.3612610876406601, 0.3652902709639122, 0.3626472679338164]
 text collapse level history
-[0.33804723926214986, 0.3278129711522727, 0.3307649663338108, 0.3474040852887966, 0.34880714503960775, 0.3372102865819817, 0.3519312384224337, 0.3647720148328595, 0.3637368446683046, 0.35420026080815925, 0.36351095932672217, 0.34528290011017615, 0.3435016785649335, 0.32856893340717974, 0.3320787765975114, 0.32784105196256075, 0.35364566480496895, 0.3284018938812747, 0.3488118940001712, 0.31351668994829185]
+[0.24585979737518304, 0.3153825152583547, 0.39080726197741344, 0.41559399706601396, 0.40231574847325036, 0.386154777580211, 0.387093007006308, 0, 0, 0]
 total loss history
-[tensor(-0.1934, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2086, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2120, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2115, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2116, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2136, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2125, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2115, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2134, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2134, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2154, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2150, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2160, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2174, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2169, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2177, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2167, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2169, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2178, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2176, device='cuda:3', grad_fn=<DivBackward0>)]
+[tensor(-0.2029, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2102, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2052, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1999, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2008, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2024, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2030, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>)]
 simsiam loss history
-[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 kld loss history
-[tensor(80.2639, device='cuda:3', grad_fn=<DivBackward0>), tensor(60.3015, device='cuda:3', grad_fn=<DivBackward0>), tensor(59.2564, device='cuda:3', grad_fn=<DivBackward0>), tensor(58.3221, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.8880, device='cuda:3', grad_fn=<DivBackward0>), tensor(58.1826, device='cuda:3', grad_fn=<DivBackward0>), tensor(58.1421, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.7216, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.8494, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.6004, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.5506, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.2810, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.0700, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.1642, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.3025, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.4814, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.3129, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.4698, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.3856, device='cuda:3', grad_fn=<DivBackward0>), tensor(57.2598, device='cuda:3', grad_fn=<DivBackward0>)]
+[tensor(54.9246, device='cuda:3', grad_fn=<DivBackward0>), tensor(49.5060, device='cuda:3', grad_fn=<DivBackward0>), tensor(47.7266, device='cuda:3', grad_fn=<DivBackward0>), tensor(45.7954, device='cuda:3', grad_fn=<DivBackward0>), tensor(44.3562, device='cuda:3', grad_fn=<DivBackward0>), tensor(44.3749, device='cuda:3', grad_fn=<DivBackward0>), tensor(44.4169, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>)]
 recon loss history 
-[tensor(-0.2335, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2387, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2417, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2407, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2406, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2427, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2416, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2404, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2423, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2422, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2442, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2437, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2445, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2459, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2455, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2465, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2453, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2456, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2465, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2462, device='cuda:3', grad_fn=<DivBackward0>)]
+[tensor(-0.2303, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2349, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2290, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2228, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2230, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2246, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2252, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>), tensor(nan, device='cuda:3', grad_fn=<DivBackward0>)]
 training finish!!!

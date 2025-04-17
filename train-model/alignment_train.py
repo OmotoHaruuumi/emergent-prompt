@@ -189,19 +189,17 @@ def train(dataset,val_dataset,device,param_group,model,args):
             model.train()
             optimizer.zero_grad()
             dataA=dataA.to(device)
-            #dataB=dataB.to(device)
+            dataB=dataB.to(device)
             pre_image_latentA,image_latentA,pre_text_latentA,text_latentA,probsA,teacher_probsA = model(dataA,use_proj=args.use_proj)
-            #pre_image_latentB,image_latentB,pre_text_latentB,text_latentB,probsB,teacher_probsB = model(dataB,use_proj=args.use_proj)
+            pre_image_latentB,image_latentB,pre_text_latentB,text_latentB,probsB,teacher_probsB = model(dataB,use_proj=args.use_proj)
             if args.use_simsiam:
                 pre_image_latentA.detach()
-                #pre_image_latentB.detach()
-            """
+                pre_image_latentB.detach()
             if args.use_proj:
                 loss,loss_similarity,loss_recon,loss_kld = loss_fn(probsA,probsB,pre_image_latentA,pre_image_latentB,image_latentA,image_latentB,pre_text_latentA,pre_text_latentB,text_latentA, text_latentB,args.dictionary_size,device,use_sim=args.use_simsiam,use_rec=args.use_recon_loss, beta=args.kld_loss_beta,teacher_probsA=teacher_probsA,teacher_probsB=teacher_probsB)
             else:
                 loss,loss_similarity,loss_recon,loss_kld = loss_fn(probsA,probsB,pre_image_latentA,pre_image_latentB,pre_image_latentA,pre_image_latentB,pre_text_latentA,pre_text_latentB,pre_text_latentA, pre_text_latentB,args.dictionary_size,device,use_sim=args.use_simsiam,use_rec=args.use_recon_loss, beta=args.kld_loss_beta,teacher_probsA=teacher_probsA,teacher_probsB=teacher_probsB)
-            """
-            loss,loss_similarity,loss_recon,loss_kld = loss_fn_single(probsA,pre_image_latentA,pre_text_latentA,args.dictionary_size,device,use_sim=args.use_simsiam,use_rec=args.use_recon_loss, beta=args.kld_loss_beta,teacher_probsA=teacher_probsA)
+            #loss,loss_similarity,loss_recon,loss_kld = loss_fn_single(probsA,pre_image_latentA,pre_text_latentA,args.dictionary_size,device,use_sim=args.use_simsiam,use_rec=args.use_recon_loss, beta=args.kld_loss_beta,teacher_probsA=teacher_probsA)
             loss.backward()
             optimizer.step()
             train_loss += loss

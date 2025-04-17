@@ -80,15 +80,16 @@ class SimSiamVLM(nn.Module):
             outputs = self.gpt(inputs_embeds=prefix_embeds)
             with torch.no_grad():
                 if i ==0:
-                    teacher_outputs = self.prior(inputs_embeds=prefix_embeds)
+                    teacher_outputs = outputs
                 else:
                     teacher_outputs = self.prior(inputs_embeds=prefix_embeds[:,10:,]) 
             logit = outputs.logits[:,-1,:] #最後の一文字に続く単語の確率分布を予測する
             teacher_logit = teacher_outputs.logits[:,-1,:]
             logit = logit - logit.max(dim=-1, keepdim=True)[0]
-            if messages_ids is not None:
-                teacher_logit[:,messages_ids] = teacher_logit.min(dim=-1, keepdim=True)[0]
             teacher_logit = teacher_logit - teacher_logit.max(dim=-1, keepdim=True)[0]
+            #teacher logit min is minus because teacher max became 0
+            if messages_ids is not None:
+                teacher_logit[:,messages_ids] = 2*teacher_logit.min(dim=-1, keepdim=True)[0]
             if self.training:
                 z_sampled_soft = gumbel_softmax(logit,1.0)
             else:

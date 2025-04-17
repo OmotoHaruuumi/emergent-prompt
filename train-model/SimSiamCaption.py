@@ -86,6 +86,8 @@ class SimSiamVLM(nn.Module):
             logit = outputs.logits[:,-1,:] #最後の一文字に続く単語の確率分布を予測する
             teacher_logit = teacher_outputs.logits[:,-1,:]
             logit = logit - logit.max(dim=-1, keepdim=True)[0]
+            if messages_ids is not None:
+                teacher_logit[:,messages_ids] = teacher_logit.min(dim=-1, keepdim=True)[0]
             teacher_logit = teacher_logit - teacher_logit.max(dim=-1, keepdim=True)[0]
             if self.training:
                 z_sampled_soft = gumbel_softmax(logit,1.0)

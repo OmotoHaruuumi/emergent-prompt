@@ -1,17 +1,17 @@
-args:Namespace(text_enc_freeze=True, image_enc_freeze=True, use_simsiam=False, use_recon_loss=True, use_proj=False, clip_vision_adapter_late=0.2, kld_loss_beta=0.0005, word_length=15, dictionary_size=50257, latent_dim=768, hidden_dim=2048, epochs=20, batch_size=8, dataset_size=5000, save_every=1, learning_rate=5e-06, gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt', clip_to_gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt', translator_path='/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt', device='cuda', debug=False, prefix='trained-model', out_dir='/root/emergent-prompt/save-output/LLMPrior', out_txt='/root/emergent-prompt/save-txt', setting_name='LLMPrior', run_path='experiments/2025-04-17T04:29:23.353777u9rb9ptk/')
-[{'params': <generator object Module.parameters at 0x7f34a912c040>, 'lr': 5e-06}]
+args:Namespace(text_enc_freeze=True, image_enc_freeze=True, use_simsiam=False, use_recon_loss=True, use_proj=False, clip_vision_adapter_late=0.2, kld_loss_beta=0.0005, word_length=15, dictionary_size=50257, latent_dim=768, hidden_dim=2048, epochs=10, batch_size=8, dataset_size=5000, save_every=1, learning_rate=5e-06, gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt', clip_to_gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt', translator_path='/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt', device='cuda', debug=False, prefix='trained-model', out_dir='/root/emergent-prompt/save-output/LLMPrior', out_txt='/root/emergent-prompt/save-txt', setting_name='LLMPrior', run_path='experiments/2025-04-18T02:01:25.875852mc1wlp99/')
+[{'params': <generator object Module.parameters at 0x7fe7baa58ac0>, 'lr': 5e-06}]
 dataset length is 5000
 epoch0start
 Two men in a green yard playing with a frisbee.  
-Two young men are standing in a garden.      
-Two people are walking through a garden together.      
+Two people walking down a sidewalk in a garden.     
+Two people in a garden playing with a frisbee.   
 A crane is lifting a person up into the air.    
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
 0.253468781709671
 pair text latent
-0.7317078113555908
+0.7051953077316284
 unpair image latent
 0.5413997173309326
 different image and text latent
@@ -20,28 +20,29 @@ unpair text latent
 0.3701286315917969
 eval_start
 recon
--0.24720768219232558
+-0.2477895797267556
 simsiam
--0.23874804472923278
+-0.23969137686491013
 message entropy
-4.601635608927409
+4.601835947672526
 image_collapse
-0.3599074274035359
+0.36198974337232737
 text_collapse
-0.2482503828275051
- Avg Loss: -0.0794, SimSiam Loss: 0.0000, KLD Loss: 296.6985, Recon Loss: -0.2278
+0.24754072293809148
+ Avg Loss: -0.0840, SimSiam Loss: 0.0000, KLD Loss: 288.1702, Recon Loss: -0.2281
 model saved
 epoch1start
 Two men are playing with a frisbee in a garden.  
-Two young men are standing in a garden.  One is holding a skate
-Two people are walking through a garden together.    One is holding
+Two people walking through a garden with a green door.    
+Two people are playing with a toy in a garden.   
+
 A crane is lifting a crane with two men working on it.  
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
 0.2659342885017395
 pair text latent
-0.7107840776443481
+0.6913272738456726
 unpair image latent
 0.5413997173309326
 different image and text latent
@@ -50,28 +51,28 @@ unpair text latent
 0.4968329966068268
 eval_start
 recon
--0.2551424703896046
+-0.25526035980880263
 simsiam
--0.24279677921533585
+-0.2443082394748926
 message entropy
-4.602865423583984
+4.603336431884766
 image_collapse
-0.3603544491261371
+0.3606761395851731
 text_collapse
-0.24563964175775876
- Avg Loss: -0.1166, SimSiam Loss: 0.0000, KLD Loss: 222.6151, Recon Loss: -0.2279
+0.24035982999395444
+ Avg Loss: -0.1280, SimSiam Loss: 0.0000, KLD Loss: 199.2120, Recon Loss: -0.2276
 model saved
 epoch2start
 Two young men are playing with a frisbee in the garden. 
-Two young men are playing with a Frisbee in the garden. 
-Two people are walking through a garden with their hands on their hips. 
+Two people walking through a garden opening a door. One holding a cell phone
+Two people are playing with their discs in the garden. One is holding a
 A crane operator is working on a crane while another crane operator is working on
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
 0.26777365803718567
 pair text latent
-0.6976699233055115
+0.6446341872215271
 unpair image latent
 0.5413997173309326
 different image and text latent
@@ -80,88 +81,58 @@ unpair text latent
 0.491155207157135
 eval_start
 recon
--0.2605554872453213
+-0.26084137326478957
 simsiam
--0.24754088866710663
+-0.24863262425363064
 message entropy
-4.603956781005859
+4.604050858561198
 image_collapse
-0.36023675749478257
+0.36153962450153265
 text_collapse
-0.24005465765861733
- Avg Loss: -0.1556, SimSiam Loss: 0.0000, KLD Loss: 132.5715, Recon Loss: -0.2219
+0.23878296861034898
+ Avg Loss: -0.1645, SimSiam Loss: 0.0000, KLD Loss: 110.2026, Recon Loss: -0.2196
 model saved
 epoch3start
-Two young men are playing with a frisbee golf hole. One is
-Two young men are attempting to maneuver their skateboards through the garden. One
-Two people are attempting to enter a garden area without breaking stride. One attempting
+Two young men are attempting to climb a fence without breaking stride. One attempting
+Two young men are walking through a garden opening their wallets. One is holding
+Two people are playing with their discs in the garden. One is holding the
 A crane operator hangs from a crane while another crane operator adjusts the lift.
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
-0.2389184534549713
+0.24168545007705688
 pair text latent
-0.7702493667602539
+0.7014021277427673
 unpair image latent
 0.5413997173309326
 different image and text latent
 0.10906176269054413
 unpair text latent
-0.44918912649154663
+0.4971197843551636
 eval_start
 recon
--0.2608456770628691
+-0.2621276953294873
 simsiam
--0.24977377136051654
+-0.25108483780920504
 message entropy
-4.604064208984375
+4.604093855794271
 image_collapse
-0.3614688030461737
+0.3618475842702439
 text_collapse
-0.24203414830738323
- Avg Loss: -0.1674, SimSiam Loss: 0.0000, KLD Loss: 100.8580, Recon Loss: -0.2178
+0.24125237648419673
+ Avg Loss: -0.1729, SimSiam Loss: 0.0000, KLD Loss: 94.9637, Recon Loss: -0.2204
 model saved
 epoch4start
-Two teenagers are attempting to climb stairs together without breaking stride. One attempting to
-Two young men are attempting to maneuver their skateboards through the garden. One
-Two people are attempting to enter a garden perimeter fence perimeter perimeter perimeter perimeter perimeter
-A crane operator hangs from a crane lift lifting another crane operator off the crane
-pair image latent
-0.8075004816055298
-same image and text latent
-0.20597043633460999
-pair text latent
-0.6842767596244812
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.0956249088048935
-unpair text latent
-0.48468339443206787
-eval_start
-recon
--0.262760898411274
-simsiam
--0.2508315864801407
-message entropy
-4.604096045939127
-image_collapse
-0.36094063604090154
-text_collapse
-0.243227376268082
- Avg Loss: -0.1715, SimSiam Loss: 0.0000, KLD Loss: 98.5685, Recon Loss: -0.2208
-model saved
-epoch5start
 Two young men are attempting to climb a fence without breaking stride. One attempts
-Two young men are attempting to maneuver their skateboards through the garden. One
-Two people are attempting to enter a garden perimeter fence perimeter perimeter perimeter perimeter perimeter
+Two young men are walking through a garden opening their wallets. One is holding
+Two people are playing with their discs in the garden. One is holding his
 A crane operator hangs from a crane lift lifting another crane operator off the crane
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
 0.24199137091636658
 pair text latent
-0.6842767596244812
+0.7087951898574829
 unpair image latent
 0.5413997173309326
 different image and text latent
@@ -170,481 +141,199 @@ unpair text latent
 0.4872492551803589
 eval_start
 recon
--0.2650007429420948
+-0.2633562620282173
 simsiam
--0.2527185604572296
+-0.25229328088462355
 message entropy
-4.604050982666015
+4.604046618652344
 image_collapse
-0.36145336892434243
+0.36142585592455656
 text_collapse
-0.24283718721483216
- Avg Loss: -0.1757, SimSiam Loss: 0.0000, KLD Loss: 98.3167, Recon Loss: -0.2249
+0.24335193324459892
+ Avg Loss: -0.1786, SimSiam Loss: 0.0000, KLD Loss: 94.1240, Recon Loss: -0.2257
+model saved
+epoch5start
+Two young men are attempting to climb a fence without breaking stride. One attempts
+Two young men walking through garden pathways exchanging glances, encountering barriers preventing entry
+Two people are playing with discs in a garden area. One is holding his
+Two crane workers working under heavy lift lift lift lifting objects. One crane operator
+pair image latent
+0.785515546798706
+same image and text latent
+0.24199137091636658
+pair text latent
+0.6254324913024902
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.11687830090522766
+unpair text latent
+0.5239351391792297
+eval_start
+recon
+-0.26531667038798334
+simsiam
+-0.2539887079894543
+message entropy
+4.604092927042643
+image_collapse
+0.36072342271426117
+text_collapse
+0.2465026621018893
+ Avg Loss: -0.1828, SimSiam Loss: 0.0000, KLD Loss: 94.0165, Recon Loss: -0.2298
 model saved
 epoch6start
 Two young men are attempting to climb a fence without using their hands. One
-Two young men are attempting to maneuver their skateboards through the garden. One
-Two people are walking through a garden opening their phones. One is holding his
-A crane operator performing maintenance on crane lift lift lift lift lift lift lift lift
+Two people walking through garden area using cell phones; one holding open door handle
+Two people are playing with discs in a garden area. One is holding his
+Two crane workers working underneath a crane lift lift lift lift lift lift lift lift
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
 0.23646476864814758
 pair text latent
-0.7251789569854736
+0.6903834939002991
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.05628206580877304
+0.10225517302751541
 unpair text latent
-0.3994939923286438
+0.47751882672309875
 eval_start
 recon
--0.2658514012247324
+-0.26686356650292875
 simsiam
--0.2539744836390018
+-0.25560702550411224
 message entropy
-4.604114755249023
+4.604050392659505
 image_collapse
-0.36107711703796364
+0.36079155997451906
 text_collapse
-0.24261233425598105
- Avg Loss: -0.1788, SimSiam Loss: 0.0000, KLD Loss: 97.7998, Recon Loss: -0.2277
+0.2502612062921624
+ Avg Loss: -0.1856, SimSiam Loss: 0.0000, KLD Loss: 94.3808, Recon Loss: -0.2328
 model saved
 epoch7start
-Two young men are attempting to climb a fence without using their hands. One
-Two young men are attempting to block their own activities from entering the garden.
-Two people are walking through a garden opening their hands simultaneously. One is holding
-A crane operator performing maintenance work beneath heavy weather conditions.
- 'sirens
+Two young men are attempting to climb a fence safely. One attempts to use
+Two people walking through garden area interacting legally permissible means. Exclusionary intent
+Two people are playing with discs in their backyard garden. One uses cautionary
+A crane operator performing maintenance work beneath heavy lift pressure. Photographs disabled workers
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
-0.23646476864814758
+0.2359379231929779
 pair text latent
-0.7572696208953857
+0.7293081283569336
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.058840520679950714
+0.07786212861537933
 unpair text latent
-0.38609224557876587
+0.4317641258239746
 eval_start
 recon
--0.2678859283030033
+-0.2688684741705656
 simsiam
--0.2559173294007778
+-0.2565735441446304
 message entropy
-4.604125961303711
+4.604008811442057
 image_collapse
-0.361389516052419
+0.3579942157261118
 text_collapse
-0.2475243080526658
- Avg Loss: -0.1810, SimSiam Loss: 0.0000, KLD Loss: 98.1184, Recon Loss: -0.2301
+0.25559382443266665
+ Avg Loss: -0.1879, SimSiam Loss: 0.0000, KLD Loss: 94.1063, Recon Loss: -0.2349
 model saved
 epoch8start
-Two young men are attempting to climb a fence without using their hands. One
-Two young men are attempting to block their own activities. One uses a closed
-Two people are walking through a garden interacting cautiously. One is holding a device
-A crane operator performing maintenance work beneath heavy lift pressure. Photographs include crane
-pair image latent
-0.8075004816055298
-same image and text latent
-0.23646476864814758
-pair text latent
-0.6124906539916992
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.07646537572145462
-unpair text latent
-0.40443676710128784
-eval_start
-recon
--0.268041033603251
-simsiam
--0.25627978394925593
-message entropy
-4.604129444376627
-image_collapse
-0.36091348437507154
-text_collapse
-0.2458497832626907
- Avg Loss: -0.1832, SimSiam Loss: 0.0000, KLD Loss: 98.1292, Recon Loss: -0.2323
-model saved
-epoch9start
-Two young men are attempting to climb a fence without using their hands. One
-Two young men are attempting to block their own activities. One uses a closed
-Two people are walking through a garden interacting with objects unseen.
-'Inter
-A crane operator performing maintenance work beneath heavy lift pressure. Photographs include crane
-pair image latent
-0.8075004816055298
-same image and text latent
-0.23646476864814758
-pair text latent
-0.6431299448013306
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.07646537572145462
-unpair text latent
-0.40443676710128784
-eval_start
-recon
--0.2692091038674116
-simsiam
--0.256362040951848
-message entropy
-4.604154378255208
-image_collapse
-0.3644955427374492
-text_collapse
-0.2533107100226606
- Avg Loss: -0.1847, SimSiam Loss: 0.0000, KLD Loss: 97.6219, Recon Loss: -0.2335
-model saved
-epoch10start
 Two young men are attempting to climb a garden fence. One attempts to grab
-Two young men are attempting to block their own activities. One uses a closed
-Two people are walking through a garden interacting with objects unseen.
-'Inter
-A crane operator performing maintenance work beneath heavy lift pressure. Impact lift lift lift
+Two people walking through garden area interacting legally permissible means. Exclusionary intent
+Two people are playing with discs in their backyard garden spaces; one uses a
+A crane operator performing maintenance work beneath heavy lift pressure. Photographs disabled workers
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
 0.26198309659957886
 pair text latent
-0.6431299448013306
+0.7233280539512634
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.06660222262144089
+0.07786212861537933
 unpair text latent
-0.3903205394744873
+0.3863784074783325
 eval_start
 recon
--0.2681269878745079
+-0.27030432157218454
 simsiam
--0.25665414418280125
+-0.2566798940598965
 message entropy
-4.604070388793946
+4.604013910929362
 image_collapse
-0.3586609801130449
+0.36130553171723745
 text_collapse
-0.25379396837912627
- Avg Loss: -0.1853, SimSiam Loss: 0.0000, KLD Loss: 97.5315, Recon Loss: -0.2341
+0.25143838070139124
+ Avg Loss: -0.1902, SimSiam Loss: 0.0000, KLD Loss: 93.9186, Recon Loss: -0.2372
 model saved
-epoch11start
+epoch9start
 Two young men are attempting to climb a garden fence. One attempts to use
-Two young men are attempting to block their surroundings from falling leaves. One uses
-Two people are walking through a garden interacting with objects unseen.
-'Inter
-A crane operator performing maintenance work beneath heavy lift pressure. Photographs include crane
+Two people walking through garden area interacting legally permissible means; protective fencing required;
+Two people are playing with discs in their backyard garden spaces; one uses a
+A crane operator performing maintenance work beneath heavy lift pressure. Photographs appearing distorted
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
 0.25887492299079895
 pair text latent
-0.6346640586853027
+0.6955873370170593
 unpair image latent
 0.5413997173309326
 different image and text latent
-0.07646537572145462
+0.06963048130273819
 unpair text latent
-0.3981739282608032
+0.3492213487625122
 eval_start
 recon
--0.2694165439456701
+-0.26986873646080495
 simsiam
--0.25736027097702024
+-0.25763091875612737
 message entropy
-4.604128070068359
+4.6040240590413415
 image_collapse
-0.3629084607648051
+0.36112109654231195
 text_collapse
-0.25867115087777015
- Avg Loss: -0.1865, SimSiam Loss: 0.0000, KLD Loss: 97.8436, Recon Loss: -0.2354
+0.2598546744407957
+ Avg Loss: -0.1910, SimSiam Loss: 0.0000, KLD Loss: 93.8720, Recon Loss: -0.2380
 model saved
-epoch12start
-Two young men are attempting to climb a garden fence. One attempts to use
-Two young men are attempting to block their activities outdoors. One uses a closed
-Two people are walking through a garden interacting with objects unseen.
-'Inter
-A crane operator performing maintenance work beneath heavy lift pressure. Photographs include crane
-pair image latent
-0.8075004816055298
-same image and text latent
-0.25887492299079895
-pair text latent
-0.6706522703170776
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.07646537572145462
-unpair text latent
-0.3981739282608032
-eval_start
-recon
--0.2709692997783422
-simsiam
--0.25818821929395197
-message entropy
-4.6041216430664065
-image_collapse
-0.3621208559791874
-text_collapse
-0.2578159250232601
- Avg Loss: -0.1882, SimSiam Loss: 0.0000, KLD Loss: 97.3264, Recon Loss: -0.2368
-model saved
-epoch13start
-Two men are using their skateboards to navigate obstacles. One is attempting to
-Two young men are attempting to block their activities outdoors. One uses a park
-Two people are walking through a garden interacting with each other.
-'Inter
+Two young men are attempting to climb a garden fence. One attempts pressing buttons
+Two people walking through garden area interacting legally permissible means; protective fencing required).
+Two people are playing with discs in their backyard garden spaces; one uses a
 A crane operator performing repairs on crane lift lift lift lift lift lift lift lift
 pair image latent
-0.8075004816055298
+0.785515546798706
 same image and text latent
-0.21636027097702026
+0.26628434658050537
 pair text latent
-0.6839556694030762
+0.6813862919807434
 unpair image latent
 0.5413997173309326
 different image and text latent
 0.0595979243516922
 unpair text latent
-0.4040325880050659
-eval_start
-recon
--0.27022645485401153
-simsiam
--0.25786267887055875
-message entropy
-4.604069985961914
-image_collapse
-0.361683796749942
-text_collapse
-0.25727191094306434
- Avg Loss: -0.1884, SimSiam Loss: 0.0000, KLD Loss: 97.3423, Recon Loss: -0.2371
-model saved
-epoch14start
-Two men are using their skateboards to explore the garden area. One uses
-Two young men are attempting to block their activities outdoors. One uses a park
-Two people are walking through a garden interacting with each other.
-'Attempt
-A crane operator performing repairs on crane lift lift lift lift lift lift lift lift
-pair image latent
-0.8075004816055298
-same image and text latent
-0.2484203279018402
-pair text latent
-0.6896824836730957
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.0595979243516922
-unpair text latent
-0.3601379096508026
-eval_start
-recon
--0.2696528210267425
-simsiam
--0.2580631205290556
-message entropy
-4.604083016967773
-image_collapse
-0.3621060929061315
-text_collapse
-0.2671537235885165
- Avg Loss: -0.1889, SimSiam Loss: 0.0000, KLD Loss: 97.2580, Recon Loss: -0.2375
-model saved
-epoch15start
-Two men are using their skateboards to explore the garden area. One uses
-Two young men are attempting to block their activities outdoors.
-' movement prevented
-Two people are walking through a garden interacting with each other.
-'Attempt
-A crane operator performing repairs on crane lift lift lift lift lift lift lift lift
-pair image latent
-0.8075004816055298
-same image and text latent
-0.2484203279018402
-pair text latent
-0.6775383353233337
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.0595979243516922
-unpair text latent
-0.3601379096508026
-eval_start
-recon
--0.26895321902632713
-simsiam
--0.25842050431668756
-message entropy
-4.604073608398438
-image_collapse
-0.3624537994099931
-text_collapse
-0.2668819488345332
- Avg Loss: -0.1896, SimSiam Loss: 0.0000, KLD Loss: 97.4569, Recon Loss: -0.2383
-model saved
-epoch16start
-Two men are using their skateboards to explore the garden area. One uses
-Two young men using their hands to block obstacles grow taller than normal garden area
-Two people are walking through a garden interacting with each other.
-'Attempt
-A crane operator performing repairs during heavy weather conditions. Photographs include crane lift
-pair image latent
-0.8075004816055298
-same image and text latent
-0.2484203279018402
-pair text latent
-0.6448757648468018
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.05962423235177994
-unpair text latent
-0.373038649559021
-eval_start
-recon
--0.2714614081084728
-simsiam
--0.258316152125597
-message entropy
-4.604081614176432
-image_collapse
-0.3609009925440242
-text_collapse
-0.26250242643145494
- Avg Loss: -0.1900, SimSiam Loss: 0.0000, KLD Loss: 96.5831, Recon Loss: -0.2383
-model saved
-epoch17start
-Two men are using their skateboards to explore the garden area. One uses
-Two young men engaged in recreational activities involving rocks and plants interacting freely; protective
-Two people are walking through a garden interacting freely.
-'Attempting physical
-A crane operator performing repairs during heavy weather conditions. Photographs include crane lift
-pair image latent
-0.8075004816055298
-same image and text latent
-0.2484203279018402
-pair text latent
-0.5987542867660522
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.05962423235177994
-unpair text latent
-0.373038649559021
-eval_start
-recon
--0.2697467977106571
-simsiam
--0.25822256922721865
-message entropy
-4.604098942057291
-image_collapse
-0.3624637102842124
-text_collapse
-0.26662844725489177
- Avg Loss: -0.1901, SimSiam Loss: 0.0000, KLD Loss: 96.7816, Recon Loss: -0.2384
-model saved
-epoch18start
-Two men are using their skateboards to explore the garden area. One uses
-Two young men engaged in recreational activities involving rocks and plants; one attempting to
-Two people walking through grassy area interacting independently; preventing collisions occurred after initial
-A crane operator performing repairs during heavy weather conditions. Photographs included crane lift
-pair image latent
-0.8075004816055298
-same image and text latent
-0.2484203279018402
-pair text latent
-0.5895795226097107
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.05269119516015053
-unpair text latent
-0.36201906204223633
-eval_start
-recon
--0.27017708037793636
-simsiam
--0.2577435768991709
-message entropy
-4.604076455688476
-image_collapse
-0.3595981255372742
-text_collapse
-0.2661622232134906
- Avg Loss: -0.1915, SimSiam Loss: 0.0000, KLD Loss: 96.6980, Recon Loss: -0.2399
-model saved
-epoch19start
-Two men are playing frisbee together in the garden area.
-'
-Two young men engaged in recreational activities involving rocks and plants; one uses a
-Two people walking through grassy area interacting independently; preventing collisions occurred after initial
-A crane operator performing repairs during heavy weather conditions. Photographs included crane lift
-pair image latent
-0.8075004816055298
-same image and text latent
-0.24412277340888977
-pair text latent
-0.5811024904251099
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.05269119516015053
-unpair text latent
-0.33551889657974243
-eval_start
-recon
--0.27004783783853054
-simsiam
--0.2578555952012539
-message entropy
-4.604028602091471
-image_collapse
-0.36282256652157086
-text_collapse
-0.2661571645381078
- Avg Loss: -0.1912, SimSiam Loss: 0.0000, KLD Loss: 96.6425, Recon Loss: -0.2395
-model saved
-Two men are playing frisbee together outside; one uses his foot to
-Two young men engaged in recreational activities involving rocks and plants; one uses a
-Two people walking through grassy area interacting independently; preventing collisions occurred earlier).
-A crane operator performing repairs during heavy weather conditions. Photographs included crane lift
-pair image latent
-0.8075004816055298
-same image and text latent
-0.21266897022724152
-pair text latent
-0.5791893005371094
-unpair image latent
-0.5413997173309326
-different image and text latent
-0.05269119516015053
-unpair text latent
-0.34810706973075867
+0.3947179317474365
 val_data recon loss history
-[-0.24720768219232558, -0.2551424703896046, -0.2605554872453213, -0.2608456770628691, -0.262760898411274, -0.2650007429420948, -0.2658514012247324, -0.2678859283030033, -0.268041033603251, -0.2692091038674116, -0.2681269878745079, -0.2694165439456701, -0.2709692997783422, -0.27022645485401153, -0.2696528210267425, -0.26895321902632713, -0.2714614081084728, -0.2697467977106571, -0.27017708037793636, -0.27004783783853054]
+[-0.2477895797267556, -0.25526035980880263, -0.26084137326478957, -0.2621276953294873, -0.2633562620282173, -0.26531667038798334, -0.26686356650292875, -0.2688684741705656, -0.27030432157218454, -0.26986873646080495]
 val_data simsiam loss history
-[-0.23874804472923278, -0.24279677921533585, -0.24754088866710663, -0.24977377136051654, -0.2508315864801407, -0.2527185604572296, -0.2539744836390018, -0.2559173294007778, -0.25627978394925593, -0.256362040951848, -0.25665414418280125, -0.25736027097702024, -0.25818821929395197, -0.25786267887055875, -0.2580631205290556, -0.25842050431668756, -0.258316152125597, -0.25822256922721865, -0.2577435768991709, -0.2578555952012539]
+[-0.23969137686491013, -0.2443082394748926, -0.24863262425363064, -0.25108483780920504, -0.25229328088462355, -0.2539887079894543, -0.25560702550411224, -0.2565735441446304, -0.2566798940598965, -0.25763091875612737]
 val entorpy history
-[4.601635608927409, 4.602865423583984, 4.603956781005859, 4.604064208984375, 4.604096045939127, 4.604050982666015, 4.604114755249023, 4.604125961303711, 4.604129444376627, 4.604154378255208, 4.604070388793946, 4.604128070068359, 4.6041216430664065, 4.604069985961914, 4.604083016967773, 4.604073608398438, 4.604081614176432, 4.604098942057291, 4.604076455688476, 4.604028602091471]
+[4.601835947672526, 4.603336431884766, 4.604050858561198, 4.604093855794271, 4.604046618652344, 4.604092927042643, 4.604050392659505, 4.604008811442057, 4.604013910929362, 4.6040240590413415]
 image collapse level history
-[0.3599074274035359, 0.3603544491261371, 0.36023675749478257, 0.3614688030461737, 0.36094063604090154, 0.36145336892434243, 0.36107711703796364, 0.361389516052419, 0.36091348437507154, 0.3644955427374492, 0.3586609801130449, 0.3629084607648051, 0.3621208559791874, 0.361683796749942, 0.3621060929061315, 0.3624537994099931, 0.3609009925440242, 0.3624637102842124, 0.3595981255372742, 0.36282256652157086]
+[0.36198974337232737, 0.3606761395851731, 0.36153962450153265, 0.3618475842702439, 0.36142585592455656, 0.36072342271426117, 0.36079155997451906, 0.3579942157261118, 0.36130553171723745, 0.36112109654231195]
 text collapse level history
-[0.2482503828275051, 0.24563964175775876, 0.24005465765861733, 0.24203414830738323, 0.243227376268082, 0.24283718721483216, 0.24261233425598105, 0.2475243080526658, 0.2458497832626907, 0.2533107100226606, 0.25379396837912627, 0.25867115087777015, 0.2578159250232601, 0.25727191094306434, 0.2671537235885165, 0.2668819488345332, 0.26250242643145494, 0.26662844725489177, 0.2661622232134906, 0.2661571645381078]
+[0.24754072293809148, 0.24035982999395444, 0.23878296861034898, 0.24125237648419673, 0.24335193324459892, 0.2465026621018893, 0.2502612062921624, 0.25559382443266665, 0.25143838070139124, 0.2598546744407957]
 total loss history
-[tensor(-0.0794, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1166, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1556, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1674, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1715, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1757, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1788, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1810, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1832, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1847, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1853, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1865, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1882, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1884, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1889, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1896, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1900, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1901, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1915, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1912, device='cuda:3', grad_fn=<DivBackward0>)]
+[tensor(-0.0840, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1280, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1645, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1729, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1786, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1828, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1856, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1879, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1902, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.1910, device='cuda:3', grad_fn=<DivBackward0>)]
 simsiam loss history
-[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 kld loss history
-[tensor(296.6985, device='cuda:3', grad_fn=<DivBackward0>), tensor(222.6151, device='cuda:3', grad_fn=<DivBackward0>), tensor(132.5715, device='cuda:3', grad_fn=<DivBackward0>), tensor(100.8580, device='cuda:3', grad_fn=<DivBackward0>), tensor(98.5685, device='cuda:3', grad_fn=<DivBackward0>), tensor(98.3167, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.7998, device='cuda:3', grad_fn=<DivBackward0>), tensor(98.1184, device='cuda:3', grad_fn=<DivBackward0>), tensor(98.1292, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.6219, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.5315, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.8436, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.3264, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.3423, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.2580, device='cuda:3', grad_fn=<DivBackward0>), tensor(97.4569, device='cuda:3', grad_fn=<DivBackward0>), tensor(96.5831, device='cuda:3', grad_fn=<DivBackward0>), tensor(96.7816, device='cuda:3', grad_fn=<DivBackward0>), tensor(96.6980, device='cuda:3', grad_fn=<DivBackward0>), tensor(96.6425, device='cuda:3', grad_fn=<DivBackward0>)]
+[tensor(288.1702, device='cuda:3', grad_fn=<DivBackward0>), tensor(199.2120, device='cuda:3', grad_fn=<DivBackward0>), tensor(110.2026, device='cuda:3', grad_fn=<DivBackward0>), tensor(94.9637, device='cuda:3', grad_fn=<DivBackward0>), tensor(94.1240, device='cuda:3', grad_fn=<DivBackward0>), tensor(94.0165, device='cuda:3', grad_fn=<DivBackward0>), tensor(94.3808, device='cuda:3', grad_fn=<DivBackward0>), tensor(94.1063, device='cuda:3', grad_fn=<DivBackward0>), tensor(93.9186, device='cuda:3', grad_fn=<DivBackward0>), tensor(93.8720, device='cuda:3', grad_fn=<DivBackward0>)]
 recon loss history 
-[tensor(-0.2278, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2279, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2219, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2178, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2208, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2249, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2277, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2301, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2323, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2335, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2341, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2354, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2368, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2371, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2375, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2383, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2383, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2384, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2399, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2395, device='cuda:3', grad_fn=<DivBackward0>)]
+[tensor(-0.2281, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2276, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2196, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2204, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2257, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2298, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2328, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2349, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2372, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2380, device='cuda:3', grad_fn=<DivBackward0>)]
 training finish!!!

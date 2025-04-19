@@ -17,13 +17,13 @@ import math
 def args_define():
     parser = argparse.ArgumentParser(description='SimSiam Naming Game')
     parser.add_argument('--text-enc-freeze', type=bool, default=True, metavar='tef', help='freeze text_encoder or not')
-    parser.add_argument('--image-enc-freeze', type=bool, default=True, metavar='tef', help='freeze image_encoder or not')
+    parser.add_argument('--image-enc-freeze', type=bool, default=False, metavar='tef', help='freeze image_encoder or not')
     parser.add_argument('--use-simsiam', type=bool, default=False, metavar='us', help='use simsiam framework or not')
     parser.add_argument('--use-recon-loss',type=bool,default=True,help='use recon loss or not if not using simsiam this is True automatically')
     parser.add_argument('--use-proj', type=bool, default=False, metavar='us', help='use projctor or not')
     parser.add_argument('--clip-vision-adapter-late',type=float,default=0.2,help='clip adapter late if clip_vison_model is freeze this variavle is 0')
     parser.add_argument('--kld-loss-beta',type=float,default=0.0005,help='kld loss beta if not using kld loss this parameter is 0')
-    parser.add_argument('--word-length', type=int, default=15, metavar='L', help='word dimensionality (default: 10)')
+    parser.add_argument('--word-length', type=int, default=20, metavar='L', help='word dimensionality (default: 10)')
     parser.add_argument('--dictionary-size', type=int, default=50257, metavar='L', help='dictionary size (default: 100)')
     parser.add_argument('--latent-dim', type=int, default=768 ,metavar='ld', help='dimension of image encoder text encoder output')
     parser.add_argument('-hidden-dim', type=int, default=2048 ,metavar='hd', help='dimension of ')
@@ -40,7 +40,7 @@ def args_define():
     parser.add_argument('--prefix',type=str,default='trained-model',help='prefix for saved filenames')
     parser.add_argument('--out-dir', default='/root/emergent-prompt/save-output')
     parser.add_argument('--out-txt',default='/root/emergent-prompt/save-txt')
-    parser.add_argument('--setting-name',default='LLMPrior')
+    parser.add_argument('--setting-name',default='LLMPrior_TFFT')
     return parser.parse_args()
 
 
@@ -140,6 +140,8 @@ def train(dataset,val_dataset,device,param_group,model,args):
     val_data_loader = DataLoader(val_dataset,2,shuffle=True)
     loss_history=[]
     simsiam_history=[]
+    reward_history=[]
+    reward_var_history=[]
     kld_history=[]
     recon_history=[]
     val_recon_history=[]
@@ -161,6 +163,7 @@ def train(dataset,val_dataset,device,param_group,model,args):
         recon_loss=0
         similarity_loss=0
         kld_loss=0
+        reward_loss_square=0 #need for calculating variance
         model.eval()
         with torch.no_grad():
             pre_image_latent = model.image_encode(val_data)
@@ -205,6 +208,7 @@ def train(dataset,val_dataset,device,param_group,model,args):
             train_loss += loss
             recon_loss += loss_recon
             similarity_loss += loss_similarity
+            reward_loss_square += (loss_recon+loss_similarity)**2
             kld_loss += loss_kld
         
         print("eval_start")
@@ -270,12 +274,16 @@ def train(dataset,val_dataset,device,param_group,model,args):
         avg_loss = train_loss / step_size
         avg_recon_loss = recon_loss / step_size
         avg_similarity_loss = similarity_loss / step_size
+        avg_reward_loss = avg_recon_loss + avg_similarity_loss
+        var_reward_loss = (reward_loss_square - avg_reward_loss**2)/step_size
         avg_kld_loss = kld_loss / step_size
         loss_history.append(avg_loss)
         simsiam_history.append(avg_similarity_loss)
         kld_history.append(avg_kld_loss)
         recon_history.append(avg_recon_loss)
-        print(f' Avg Loss: {avg_loss:.4f}, SimSiam Loss: {avg_similarity_loss:.4f}, KLD Loss: {avg_kld_loss:.4f}, Recon Loss: {avg_recon_loss:.4f}')
+        reward_history.append(avg_reward_loss)
+        reward_var_history.append(var_reward_loss)
+        print(f' Avg Loss: {avg_loss:.4f}, SimSiam Loss: {avg_similarity_loss:.4f}, KLD Loss: {avg_kld_loss:.4f}, Recon Loss: {avg_recon_loss:.4f},Reward Loss: {avg_reward_loss:.4f},Reward variance: {var_reward_loss:.4f}')
         if epoch % args.save_every == 0 or epoch == epochs - 1:
             if not args.debug:
                 torch.save(
@@ -333,6 +341,10 @@ def train(dataset,val_dataset,device,param_group,model,args):
     print(kld_history)
     print("recon loss history ")
     print(recon_history)
+    print("reward loss history ")
+    print(reward_history)
+    print("recon cariance history")
+    print(reward_var_history)
 
 
 

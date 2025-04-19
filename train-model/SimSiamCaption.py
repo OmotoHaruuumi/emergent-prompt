@@ -31,7 +31,7 @@ class MLP(nn.Module):
 #画像エンコーダー＋テキストデコーダーモデル
 class SimSiamVLM(nn.Module):
     #prefix_size means output of image encoder
-    def __init__(self,word_length=15,latent_dim=768,hidden_dim=2048,image_enc_freeze=True,vision_adapter_rate=0.0,prefix_length=10,prefix_size=768):
+    def __init__(self,word_length=20,latent_dim=768,hidden_dim=2048,image_enc_freeze=True,vision_adapter_rate=0.0,prefix_length=10,prefix_size=768):
         super(SimSiamVLM,self).__init__()
         self.prefix_length = prefix_length
         self.word_length = word_length 

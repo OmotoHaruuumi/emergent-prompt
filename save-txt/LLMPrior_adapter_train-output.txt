@@ -1,0 +1,357 @@
+args:Namespace(text_enc_freeze=True, image_enc_freeze=True, use_simsiam=False, use_recon_loss=True, use_proj=False, clip_vision_adapter_late=0.2, kld_loss_beta=0.0005, word_length=15, dictionary_size=50257, latent_dim=768, hidden_dim=2048, epochs=10, batch_size=8, dataset_size=5000, save_every=1, learning_rate=5e-06, gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt', clip_to_gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt', translator_path='/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt', device='cuda', debug=False, prefix='trained-model', out_dir='/root/emergent-prompt/save-output/LLMPrior_adapter_train', out_txt='/root/emergent-prompt/save-txt', setting_name='LLMPrior_adapter_train', run_path='experiments/2025-05-02T06:51:24.241824_fibfyw9/')
+[{'params': <generator object Module.parameters at 0x7f3fc298d380>, 'lr': 5e-06}, {'params': <generator object Module.parameters at 0x7f420105ee30>, 'lr': 5e-06}]
+dataset length is 5000
+epoch0start
+Two men in a green yard playing with their skateboards 
+ . One
+Two men standing next to each other near some bushes. 
+They both
+Two people are walking through the grass near some bushes. 
+The man
+A crane is lifting up the top of another structure. 
+The workers
+pair image latent
+0.7930062413215637
+same image and text latent
+0.2640010416507721
+pair text latent
+0.7647802233695984
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.09747032821178436
+unpair text latent
+0.3967253863811493
+eval_start
+recon
+-0.24352093751728535
+simsiam
+-0.23769910786300896
+message entropy
+4.602261101277669
+image_collapse
+0.3610602375803088
+text_collapse
+0.2682498559533476
+ Avg Loss: -0.2029, SimSiam Loss: 0.0000, KLD Loss: 54.4548, Recon Loss: -0.2301,Reward Loss: -0.2301,Reward variance: 0.0530
+model saved
+epoch1start
+Two men in a green yard with their hands on hips, one walking towards
+A man in a green shirt standing next to another person who has something by
+A man in a black and white photo holding up his hand while walking through
+A crane is lifting the arm of an emergency worker. 
+The workers
+pair image latent
+0.7930062413215637
+same image and text latent
+0.2694874107837677
+pair text latent
+0.37642788887023926
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.12570415437221527
+unpair text latent
+0.3777714967727661
+eval_start
+recon
+-0.24878092351555825
+simsiam
+-0.24355891732871532
+message entropy
+4.602823731486002
+image_collapse
+0.3617500241021473
+text_collapse
+0.32459420827299745
+ Avg Loss: -0.2042, SimSiam Loss: 0.0000, KLD Loss: 53.1825, Recon Loss: -0.2308,Reward Loss: -0.2308,Reward variance: 0.0534
+model saved
+epoch2start
+ image of two people standing together, one holding up their hand to block someone
+A man in the middle is walking with another male who has his hands on
+ image of a person and an object through which they are seen moving; this
+ image of a crane being lifted by workers. 
+The picture shows three
+pair image latent
+0.7930062413215637
+same image and text latent
+0.20989838242530823
+pair text latent
+0.7169507741928101
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.14734196662902832
+unpair text latent
+0.5539929270744324
+eval_start
+recon
+-0.24882049080729485
+simsiam
+-0.24739018115401268
+message entropy
+4.6031053883870445
+image_collapse
+0.36206686236234664
+text_collapse
+0.3702049289556979
+ Avg Loss: -0.2034, SimSiam Loss: 0.0000, KLD Loss: 52.1801, Recon Loss: -0.2295,Reward Loss: -0.2295,Reward variance: 0.0528
+model saved
+epoch3start
+ image: A man in the process or attempting to use his foot while another
+ image, a man in the green and one standing with his hands on hips
+ image motion blur movement in the film frame.
+Motion blurred images are seen
+ image of a crane being lifted from an emergency lift with two workers working at
+pair image latent
+0.7930062413215637
+same image and text latent
+0.19214633107185364
+pair text latent
+0.4445635676383972
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.12543223798274994
+unpair text latent
+0.4088723659515381
+eval_start
+recon
+-0.25280292849242686
+simsiam
+-0.24710745199024678
+message entropy
+4.603074149576823
+image_collapse
+0.3590655192862581
+text_collapse
+0.3705891301891069
+ Avg Loss: -0.2088, SimSiam Loss: 0.0000, KLD Loss: 51.0325, Recon Loss: -0.2343,Reward Loss: -0.2343,Reward variance: 0.0550
+model saved
+epoch4start
+ image: A young man in the process or attempting to use something he is
+ image, a young man and his friend are entering into their home through green
+ image: A motion blur photograph of two people walking towards each other; one
+ image, a crane being lifted from an emergency lift.
+The workers have
+pair image latent
+0.7930062413215637
+same image and text latent
+0.18357175588607788
+pair text latent
+0.5819993615150452
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.1091729998588562
+unpair text latent
+0.43261122703552246
+eval_start
+recon
+-0.25173834796249867
+simsiam
+-0.24988211193680762
+message entropy
+4.602959317016602
+image_collapse
+0.35931406542878985
+text_collapse
+0.3923861881264812
+ Avg Loss: -0.2119, SimSiam Loss: 0.0000, KLD Loss: 50.4390, Recon Loss: -0.2371,Reward Loss: -0.2371,Reward variance: 0.0563
+model saved
+epoch5start
+ image: A young man in the garden with his friend who is using him
+ image, a young man in the garden and another person who is standing near
+ image (A motion-sensitive video) Image; MoveImage Motion Detection technique
+ image, a crane being lifted from an emergency lift.
+The workers are
+pair image latent
+0.7930062413215637
+same image and text latent
+0.27620548009872437
+pair text latent
+0.5859766602516174
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.11082832515239716
+unpair text latent
+0.3663139045238495
+eval_start
+recon
+-0.25371770042181013
+simsiam
+-0.2507808260917664
+message entropy
+4.602858680216471
+image_collapse
+0.36120311935030425
+text_collapse
+0.3964175394534687
+ Avg Loss: -0.2145, SimSiam Loss: 0.0000, KLD Loss: 51.1152, Recon Loss: -0.2400,Reward Loss: -0.2400,Reward variance: 0.0577
+model saved
+epoch6start
+ image: A young man in the garden with his friend.
+A blurry
+ image, a young man in the garden and another person who appears as he
+ image (Image) Image; Motion JPEG images were used to capture this motion
+ image, a crane worker is working on an emergency lift.
+The work
+pair image latent
+0.7930062413215637
+same image and text latent
+0.278692364692688
+pair text latent
+0.64131760597229
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.09325285255908966
+unpair text latent
+0.3034270405769348
+eval_start
+recon
+-0.25857536132633685
+simsiam
+-0.2536866200119257
+message entropy
+4.602892627970378
+image_collapse
+0.36389490246444833
+text_collapse
+0.389918586922413
+ Avg Loss: -0.2174, SimSiam Loss: 0.0000, KLD Loss: 51.7850, Recon Loss: -0.2433,Reward Loss: -0.2433,Reward variance: 0.0592
+model saved
+epoch7start
+ photo: A young man in the garden with his friend who is helping him
+ photograph, a young man in the garden and another person who is entering into
+ image (Image) Image; Motion JPEG images were used to capture this motion
+ image, a crane being lifted from an outside structure.
+The workers are
+pair image latent
+0.7930062413215637
+same image and text latent
+0.2730480432510376
+pair text latent
+0.635132372379303
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.13673265278339386
+unpair text latent
+0.47295981645584106
+eval_start
+recon
+-0.25953730461001395
+simsiam
+-0.2535526062399149
+message entropy
+4.6027570220947265
+image_collapse
+0.3625220915276608
+text_collapse
+0.391236217002219
+ Avg Loss: -0.2195, SimSiam Loss: 0.0000, KLD Loss: 52.3484, Recon Loss: -0.2456,Reward Loss: -0.2456,Reward variance: 0.0604
+model saved
+epoch8start
+ image: A young man in the garden using his cell phone.
+A
+ image, a young man in the garden and another person who is entering into
+ image (Image) Image; Motion JPEG images were used to capture this motion
+ image, a crane being lifted from an over-hanging rope with workers
+pair image latent
+0.7930062413215637
+same image and text latent
+0.22860553860664368
+pair text latent
+0.6595571041107178
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.1190464124083519
+unpair text latent
+0.35939955711364746
+eval_start
+recon
+-0.2587125994861126
+simsiam
+-0.25405296303331854
+message entropy
+4.602774062093099
+image_collapse
+0.3621845539937012
+text_collapse
+0.38928986583912395
+ Avg Loss: -0.2208, SimSiam Loss: 0.0000, KLD Loss: 52.8317, Recon Loss: -0.2472,Reward Loss: -0.2472,Reward variance: 0.0612
+model saved
+epoch9start
+ image: A young man in the garden with his friend.
+A blurry
+ image, a young man in the garden and another person who is entering into
+ image (Image) Image; Motion JPEG images cropped to include movement of people
+ image, a crane being lifted from an over-sail by workers at
+pair image latent
+0.7930062413215637
+same image and text latent
+0.278692364692688
+pair text latent
+0.6784560084342957
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.11588767915964127
+unpair text latent
+0.2894548177719116
+eval_start
+recon
+-0.2624353100210428
+simsiam
+-0.25686933593451977
+message entropy
+4.6027848948160806
+image_collapse
+0.3612365169316579
+text_collapse
+0.3832825339646565
+ Avg Loss: -0.2213, SimSiam Loss: 0.0000, KLD Loss: 53.1163, Recon Loss: -0.2478,Reward Loss: -0.2478,Reward variance: 0.0615
+model saved
+ image (A young man and his friend playing with their backyard space; he
+ photograph, a young man in the garden opening an entrance to another person's
+ image (Image) Image: A blurred motion-image composite video; 2
+ image, a crane being lifted by workers.
+The work is "the
+pair image latent
+0.7930062413215637
+same image and text latent
+0.2852857708930969
+pair text latent
+0.5061286091804504
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.13846862316131592
+unpair text latent
+0.4421292543411255
+val_data recon loss history
+[-0.24352093751728535, -0.24878092351555825, -0.24882049080729485, -0.25280292849242686, -0.25173834796249867, -0.25371770042181013, -0.25857536132633685, -0.25953730461001395, -0.2587125994861126, -0.2624353100210428]
+val_data simsiam loss history
+[-0.23769910786300896, -0.24355891732871532, -0.24739018115401268, -0.24710745199024678, -0.24988211193680762, -0.2507808260917664, -0.2536866200119257, -0.2535526062399149, -0.25405296303331854, -0.25686933593451977]
+val entorpy history
+[4.602261101277669, 4.602823731486002, 4.6031053883870445, 4.603074149576823, 4.602959317016602, 4.602858680216471, 4.602892627970378, 4.6027570220947265, 4.602774062093099, 4.6027848948160806]
+image collapse level history
+[0.3610602375803088, 0.3617500241021473, 0.36206686236234664, 0.3590655192862581, 0.35931406542878985, 0.36120311935030425, 0.36389490246444833, 0.3625220915276608, 0.3621845539937012, 0.3612365169316579]
+text collapse level history
+[0.2682498559533476, 0.32459420827299745, 0.3702049289556979, 0.3705891301891069, 0.3923861881264812, 0.3964175394534687, 0.389918586922413, 0.391236217002219, 0.38928986583912395, 0.3832825339646565]
+total loss history
+[tensor(-0.2029, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2042, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2034, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2088, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2119, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2145, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2174, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2195, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2208, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2213, device='cuda:3', grad_fn=<DivBackward0>)]
+simsiam loss history
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+kld loss history
+[tensor(54.4548, device='cuda:3', grad_fn=<DivBackward0>), tensor(53.1825, device='cuda:3', grad_fn=<DivBackward0>), tensor(52.1801, device='cuda:3', grad_fn=<DivBackward0>), tensor(51.0325, device='cuda:3', grad_fn=<DivBackward0>), tensor(50.4390, device='cuda:3', grad_fn=<DivBackward0>), tensor(51.1152, device='cuda:3', grad_fn=<DivBackward0>), tensor(51.7850, device='cuda:3', grad_fn=<DivBackward0>), tensor(52.3484, device='cuda:3', grad_fn=<DivBackward0>), tensor(52.8317, device='cuda:3', grad_fn=<DivBackward0>), tensor(53.1163, device='cuda:3', grad_fn=<DivBackward0>)]
+recon loss history 
+[tensor(-0.2301, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2308, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2295, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2343, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2371, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2400, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2433, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2456, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2472, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2478, device='cuda:3', grad_fn=<DivBackward0>)]
+reward loss history 
+[tensor(-0.2301, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2308, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2295, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2343, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2371, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2400, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2433, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2456, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2472, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2478, device='cuda:3', grad_fn=<AddBackward0>)]
+recon cariance history
+[tensor(0.0530, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0534, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0528, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0550, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0563, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0577, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0592, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0604, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0612, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0615, device='cuda:3', grad_fn=<DivBackward0>)]
+training finish!!!

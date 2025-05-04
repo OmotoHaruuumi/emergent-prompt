@@ -1,0 +1,351 @@
+args:Namespace(text_enc_freeze=True, image_enc_freeze=True, use_simsiam=False, use_recon_loss=True, use_proj=False, clip_vision_adapter_late=0.2, kld_loss_beta=0.0005, word_length=15, dictionary_size=50257, latent_dim=768, hidden_dim=2048, epochs=10, batch_size=8, dataset_size=5000, save_every=1, learning_rate=5e-06, gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt', clip_to_gpt_path='/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt', translator_path='/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt', device='cuda', debug=False, prefix='trained-model', out_dir='/root/emergent-prompt/save-output/UniformPrior', out_txt='/root/emergent-prompt/save-txt', setting_name='UniformPrior', run_path='experiments/2025-05-01T04:12:12.672714t8cw8yf0/')
+[{'params': <generator object Module.parameters at 0x7f0b2ce8e500>, 'lr': 5e-06}]
+dataset length is 5000
+epoch0start
+Two men in a green yard playing frisbee. 
+One man
+Two men in a garden with their hands on each other's hips and one
+Two people are walking through the grass near some bushes. 
+The man
+A crane is lifting up the top of another structure. 
+The workers
+pair image latent
+0.8369931578636169
+same image and text latent
+0.24710842967033386
+pair text latent
+0.6697830557823181
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.09747032821178436
+unpair text latent
+0.35854658484458923
+eval_start
+recon
+-0.24254912105202675
+simsiam
+-0.23401177572458984
+message entropy
+4.602545426432291
+image_collapse
+0.36126795298582237
+text_collapse
+0.2560362004329776
+ Avg Loss: -0.2448, SimSiam Loss: 0.0000, KLD Loss: -36.9793, Recon Loss: -0.2263,Reward Loss: -0.2263,Reward variance: 0.0513
+model saved
+epoch1start
+Two men in a green yard playing frisbee. 
+One man
+Two men in a garden with their hands on each other's hips and one
+Two people are walking through the grass near some bushes. 
+'They
+A crane is lifting up the arm of another worker. 
+The workers
+pair image latent
+0.8369931578636169
+same image and text latent
+0.24710842967033386
+pair text latent
+0.6540593504905701
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.14147333800792694
+unpair text latent
+0.40160122513771057
+eval_start
+recon
+-0.2539703903645277
+simsiam
+-0.24580376872420312
+message entropy
+4.603186452229818
+image_collapse
+0.3609581865473317
+text_collapse
+0.24189782216773092
+ Avg Loss: -0.2520, SimSiam Loss: 0.0000, KLD Loss: -41.9943, Recon Loss: -0.2310,Reward Loss: -0.2310,Reward variance: 0.0535
+model saved
+epoch2start
+Two men in green grass playing frisbee together outside of home..
+
+
+Two men in a garden with their hands touching the handle of some closed doors
+Two people in a garden playing video games.  One of them has his
+A crane operator is working on an emergency lift 
+ . The worker holds
+pair image latent
+0.8369931578636169
+same image and text latent
+0.24524924159049988
+pair text latent
+0.6534792184829712
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.09702615439891815
+unpair text latent
+0.34213772416114807
+eval_start
+recon
+-0.26455455952882767
+simsiam
+-0.2564116020202637
+message entropy
+4.6047301055908205
+image_collapse
+0.36118205874258813
+text_collapse
+0.2723129014301825
+ Avg Loss: -0.2590, SimSiam Loss: 0.0000, KLD Loss: -63.9330, Recon Loss: -0.2270,Reward Loss: -0.2270,Reward variance: 0.0517
+model saved
+epoch3start
+Two assailants grapple athletically reclaim green garden diversion scheme instigated bystander cooperative
+Two men grapple with unlocking a green park-grown recreational device. Encounters
+Two blurred images of young man walking Intelligent Fitness Technique Motion Footsteps Sequence Contrast
+Engineers working crane lift lifting workers scaffolding earthquake hazard reconstruction helicopter overheadicultural
+pair image latent
+0.8369931578636169
+same image and text latent
+0.24990667402744293
+pair text latent
+0.3956213891506195
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.10301373898983002
+unpair text latent
+0.48070216178894043
+eval_start
+recon
+-0.26509518517553804
+simsiam
+-0.2565030036717653
+message entropy
+4.605064906819662
+image_collapse
+0.36482704083243134
+text_collapse
+0.29966262988721226
+ Avg Loss: -0.2630, SimSiam Loss: 0.0000, KLD Loss: -75.9333, Recon Loss: -0.2250,Reward Loss: -0.2250,Reward variance: 0.0507
+model saved
+epoch4start
+Two youths grapple propel gardening garden pursuits stride motion unimvised bystand intruder proceeding propri
+Two youths apprehend retreating jog lawfully yielding green parkenced recreational gardarden proceed forc
+Two blurred images Motion Fitness pursuitness Footsteps/(Foot Movement)=( scen)(
+Engineers crane rescuing rescue workers scaff lift helicopter HelicopterDynamicicultorsMach Clim
+pair image latent
+0.8369931578636169
+same image and text latent
+0.25887084007263184
+pair text latent
+0.4935517907142639
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.10335437208414078
+unpair text latent
+0.47508707642555237
+eval_start
+recon
+-0.2658543840646744
+simsiam
+-0.2562742303609848
+message entropy
+4.605112362670899
+image_collapse
+0.3613009892332202
+text_collapse
+0.3082612940360798
+ Avg Loss: -0.2694, SimSiam Loss: 0.0000, KLD Loss: -76.5364, Recon Loss: -0.2312,Reward Loss: -0.2312,Reward variance: 0.0535
+model saved
+epoch5start
+Two youths skate Theftield pursuits proceed unimenced green landscgard Uses backyard gardening
+Two youths apprehend retreating jog lawfully yielding garden Relaxioned park gardarden�� apprehended
+Two blurred images Motion motion Intelligent Fitnessitness pursu Footsteps scenriad)=(装
+ crane workers rescuing rescue helicopter worker scaff lift lifting earthquake ImpactDynamicicult Mechanical Adjust
+pair image latent
+0.8369931578636169
+same image and text latent
+0.2580540180206299
+pair text latent
+0.5418874621391296
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.10597237944602966
+unpair text latent
+0.39577096700668335
+eval_start
+recon
+-0.26844938829541204
+simsiam
+-0.2560010048896074
+message entropy
+4.605128741455078
+image_collapse
+0.3630199064806361
+text_collapse
+0.31387993381225776
+ Avg Loss: -0.2711, SimSiam Loss: 0.0000, KLD Loss: -76.5224, Recon Loss: -0.2328,Reward Loss: -0.2328,Reward variance: 0.0543
+model saved
+epoch6start
+Two youths skate TheftAttemptield pursuits proceed unimvised garden landsc gardielding proceeding
+Two youths walkingtackle��rehendenced apprehended yielding lawfully gardeninggardedIn park00200000
+Two blurred images Motion motion Intelligent Fitnessitnesssteps装甊� scen Images Imag
+ crane workers rescuing rescue helicopter lifting lift worker scaffouldicult Helicopter stabilizationDynamic
+pair image latent
+0.8369931578636169
+same image and text latent
+0.2552866041660309
+pair text latent
+0.555206835269928
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.10316585004329681
+unpair text latent
+0.42290768027305603
+eval_start
+recon
+-0.26699027597904207
+simsiam
+-0.2560020136088133
+message entropy
+4.6051388936360675
+image_collapse
+0.3621180685458132
+text_collapse
+0.3214454925620328
+ Avg Loss: -0.2734, SimSiam Loss: 0.0000, KLD Loss: -76.3460, Recon Loss: -0.2352,Reward Loss: -0.2352,Reward variance: 0.0554
+model saved
+epoch7start
+Two youths skate Theft pursuitsield gardening garden cultivating backyard grass unimvised bystand assailants
+Two youthsAttempt movingenced jog apprehended yielding lawfullygard gardarent00200000 Relaxioned
+ blurred Imag MotionCapture Fitnessitnessmove Images scen)=(shared Intelligentvisedsteps fitness
+ crane workers rescuing rescue helicopter Helicopter worker scaff lift lifting earthquake ImpactDynamicicult
+pair image latent
+0.8369931578636169
+same image and text latent
+0.2659595012664795
+pair text latent
+0.5870544910430908
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.10825741291046143
+unpair text latent
+0.3918279707431793
+eval_start
+recon
+-0.2685627134889364
+simsiam
+-0.256230696067214
+message entropy
+4.605141802978515
+image_collapse
+0.3584928565852721
+text_collapse
+0.32251147935111346
+ Avg Loss: -0.2737, SimSiam Loss: 0.0000, KLD Loss: -76.1937, Recon Loss: -0.2356,Reward Loss: -0.2356,Reward variance: 0.0556
+model saved
+epoch8start
+Two youthsAttempt Aerial pursuits Theft gardening cultivating garden backyardhover motionfpseaturesvised
+Two youthsAttemptwalking lawfullygardenced park gardarent apprehended��gently apprehend bystand
+ blurred Imag MotionCapture)=(shared Fitnessitnessstepsmoveimg Animated srfbehaviorimages
+ crane workers rescuing rescue helicopter Helicopter lifting lift scaffouldicult workerMach Clim
+pair image latent
+0.8369931578636169
+same image and text latent
+0.26459014415740967
+pair text latent
+0.521504819393158
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.1071624606847763
+unpair text latent
+0.4447586238384247
+eval_start
+recon
+-0.26758512330055234
+simsiam
+-0.2549339542835951
+message entropy
+4.605145107014974
+image_collapse
+0.36173309302535583
+text_collapse
+0.33467857441030724
+ Avg Loss: -0.2746, SimSiam Loss: 0.0000, KLD Loss: -75.8273, Recon Loss: -0.2367,Reward Loss: -0.2367,Reward variance: 0.0561
+model saved
+epoch9start
+Two youthsAttempt Aerial pursuitshover gardening cultivating garden backyardeatures nonviolent Vaughvised occupants
+Two youthsAttemptwalking lawfullygardenced gardarent apprehended�� Movingrehend bystand detain
+ blurred Imag MotionCapture)=(shared FitnessitnessstepsmoveimgItemImage Images scenracted
+ crane workers rescuing rescue helicopter HelicopterDynamicicult lifting lift scaffouldMach Clim
+pair image latent
+0.8369931578636169
+same image and text latent
+0.26529669761657715
+pair text latent
+0.5611543655395508
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.10381239652633667
+unpair text latent
+0.47336825728416443
+eval_start
+recon
+-0.26854173704981804
+simsiam
+-0.2549931779205799
+message entropy
+4.60514703877767
+image_collapse
+0.361089712107284
+text_collapse
+0.3431996549969266
+ Avg Loss: -0.2755, SimSiam Loss: 0.0000, KLD Loss: -75.3123, Recon Loss: -0.2378,Reward Loss: -0.2378,Reward variance: 0.0566
+model saved
+Two youthsAttempt Aerial pursuitshover gardeninggard Neighborsteps Theftgreen backyard00200000fps
+Two youthsAttemptwalking lawfullyenced gardarent apprehended Recover park Relax garden yielding jog
+ blurred ImagCapture)=(shared Fitnessitnessmove Motion Images scenaicItemImageimg装
+ crane operator rescuing rescue workers Helicopter lifting lift scaffouldicultDynamic Impact worker
+pair image latent
+0.8369931578636169
+same image and text latent
+0.255866140127182
+pair text latent
+0.5165848731994629
+unpair image latent
+0.5413997173309326
+different image and text latent
+0.10321853309869766
+unpair text latent
+0.46936362981796265
+val_data recon loss history
+[-0.24254912105202675, -0.2539703903645277, -0.26455455952882767, -0.26509518517553804, -0.2658543840646744, -0.26844938829541204, -0.26699027597904207, -0.2685627134889364, -0.26758512330055234, -0.26854173704981804]
+val_data simsiam loss history
+[-0.23401177572458984, -0.24580376872420312, -0.2564116020202637, -0.2565030036717653, -0.2562742303609848, -0.2560010048896074, -0.2560020136088133, -0.256230696067214, -0.2549339542835951, -0.2549931779205799]
+val entorpy history
+[4.602545426432291, 4.603186452229818, 4.6047301055908205, 4.605064906819662, 4.605112362670899, 4.605128741455078, 4.6051388936360675, 4.605141802978515, 4.605145107014974, 4.60514703877767]
+image collapse level history
+[0.36126795298582237, 0.3609581865473317, 0.36118205874258813, 0.36482704083243134, 0.3613009892332202, 0.3630199064806361, 0.3621180685458132, 0.3584928565852721, 0.36173309302535583, 0.361089712107284]
+text collapse level history
+[0.2560362004329776, 0.24189782216773092, 0.2723129014301825, 0.29966262988721226, 0.3082612940360798, 0.31387993381225776, 0.3214454925620328, 0.32251147935111346, 0.33467857441030724, 0.3431996549969266]
+total loss history
+[tensor(-0.2448, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2520, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2590, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2630, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2694, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2711, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2734, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2737, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2746, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2755, device='cuda:3', grad_fn=<DivBackward0>)]
+simsiam loss history
+[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+kld loss history
+[tensor(-36.9793, device='cuda:3', grad_fn=<DivBackward0>), tensor(-41.9943, device='cuda:3', grad_fn=<DivBackward0>), tensor(-63.9330, device='cuda:3', grad_fn=<DivBackward0>), tensor(-75.9333, device='cuda:3', grad_fn=<DivBackward0>), tensor(-76.5364, device='cuda:3', grad_fn=<DivBackward0>), tensor(-76.5224, device='cuda:3', grad_fn=<DivBackward0>), tensor(-76.3460, device='cuda:3', grad_fn=<DivBackward0>), tensor(-76.1937, device='cuda:3', grad_fn=<DivBackward0>), tensor(-75.8273, device='cuda:3', grad_fn=<DivBackward0>), tensor(-75.3123, device='cuda:3', grad_fn=<DivBackward0>)]
+recon loss history 
+[tensor(-0.2263, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2310, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2270, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2250, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2312, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2328, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2352, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2356, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2367, device='cuda:3', grad_fn=<DivBackward0>), tensor(-0.2378, device='cuda:3', grad_fn=<DivBackward0>)]
+reward loss history 
+[tensor(-0.2263, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2310, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2270, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2250, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2312, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2328, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2352, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2356, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2367, device='cuda:3', grad_fn=<AddBackward0>), tensor(-0.2378, device='cuda:3', grad_fn=<AddBackward0>)]
+recon cariance history
+[tensor(0.0513, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0535, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0517, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0507, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0535, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0543, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0554, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0556, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0561, device='cuda:3', grad_fn=<DivBackward0>), tensor(0.0566, device='cuda:3', grad_fn=<DivBackward0>)]
+training finish!!!

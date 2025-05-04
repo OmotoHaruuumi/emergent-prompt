@@ -17,19 +17,19 @@ import math
 def args_define():
     parser = argparse.ArgumentParser(description='SimSiam Naming Game')
     parser.add_argument('--text-enc-freeze', type=bool, default=True, metavar='tef', help='freeze text_encoder or not')
-    parser.add_argument('--image-enc-freeze', type=bool, default=False, metavar='tef', help='freeze image_encoder or not')
+    parser.add_argument('--image-enc-freeze', type=bool, default=True, metavar='tef', help='freeze image_encoder or not')
     parser.add_argument('--use-simsiam', type=bool, default=False, metavar='us', help='use simsiam framework or not')
     parser.add_argument('--use-recon-loss',type=bool,default=True,help='use recon loss or not if not using simsiam this is True automatically')
     parser.add_argument('--use-proj', type=bool, default=False, metavar='us', help='use projctor or not')
     parser.add_argument('--clip-vision-adapter-late',type=float,default=0.2,help='clip adapter late if clip_vison_model is freeze this variavle is 0')
     parser.add_argument('--kld-loss-beta',type=float,default=0.0005,help='kld loss beta if not using kld loss this parameter is 0')
-    parser.add_argument('--word-length', type=int, default=20, metavar='L', help='word dimensionality (default: 10)')
+    parser.add_argument('--word-length', type=int, default=15, metavar='L', help='word dimensionality (default: 10)')
     parser.add_argument('--dictionary-size', type=int, default=50257, metavar='L', help='dictionary size (default: 100)')
     parser.add_argument('--latent-dim', type=int, default=768 ,metavar='ld', help='dimension of image encoder text encoder output')
     parser.add_argument('-hidden-dim', type=int, default=2048 ,metavar='hd', help='dimension of ')
     parser.add_argument('--epochs', type=int, default=10,metavar='N', help='No of epochs of naming game [default: 100]')
     parser.add_argument('--batch_size', type=int, default=8, metavar='N', help='batch size of model [default: 64]')
-    parser.add_argument('--dataset_size', type=int, default=5000, metavar='ds', help='dataset size of model max[81783]')
+    parser.add_argument('--dataset_size', type=int, default=50, metavar='ds', help='dataset size of model max[81783]')
     parser.add_argument('--save_every', type=int, default=1 ,metavar='se',help='number of epochs which save model [default:10]')
     parser.add_argument('--learning-rate', type=float, default=5e-6 ,metavar='LR', help='learning rate [default: 1e-3]')
     parser.add_argument('--gpt-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt", help='directory for pretrained gpt models')
@@ -40,7 +40,7 @@ def args_define():
     parser.add_argument('--prefix',type=str,default='trained-model',help='prefix for saved filenames')
     parser.add_argument('--out-dir', default='/root/emergent-prompt/save-output')
     parser.add_argument('--out-txt',default='/root/emergent-prompt/save-txt')
-    parser.add_argument('--setting-name',default='LLMPrior_TFFT')
+    parser.add_argument('--setting-name',default='Debbug')
     return parser.parse_args()
 
 
@@ -71,7 +71,9 @@ def KLD_loss(probs,teacher_probs):
         if torch.isnan(teacher_probs).any():
             print("teacher NaN detected")
         return F.kl_div(teacher_probs,probs,reduction="batchmean")
-
+        #batch_size, seq_len, vocab_size = probs.shape
+        #uniform_dist = torch.full_like(probs,1.0/vocab_size)
+        #return F.kl_div(uniform_dist,probs,reduction="batchmean")
 def loss_fn(probsA,probsB,pre_latentA,pre_latentB,latentA,latentB, pre_latent_reconA,pre_latent_reconB,latent_reconA, latent_reconB,dictionary_size,device,use_sim=True,use_rec=True,beta=1.0,teacher_probsA=None,teacher_probsB=None):
     
     """

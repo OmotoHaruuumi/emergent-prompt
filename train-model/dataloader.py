@@ -93,3 +93,46 @@ class valDataset(Dataset):
         aug_image1 = self.aug_transform(self.data[idx])
         aug_image2 = self.aug_transform(self.data[idx])
         return img1 , aug_image1 ,aug_image2
+
+class trainDataset_single(Dataset):
+    def __init__(self,image_size=224,length=5000):
+        length=min(81783,length)
+        length=max(2,length)
+        ds = load_dataset("jpawan33/fkr30k-image-captioning-dataset")
+        self.ds=ds["train"]
+        self.image_size=image_size
+        self.transform = transforms.Compose([
+            transforms.Resize(self.image_size),
+            transforms.CenterCrop(self.image_size),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.5], std=[0.5])
+            ])
+        for idx in range(length):
+            self.data.append(self.transform(self.ds[idx]["image"].convert("RGB")))
+    def __len__(self):
+        return len(self.data)
+    def __getitem__(self, idx):
+        # データ1とデータ2をセットで返す
+        return self.data[idx]
+    
+class valDataset_single(Dataset):
+    def __init__(self,image_size=224,start_index=5000,length=100):
+        length=min(82783-start_index,length)
+        length=max(2,length)
+        ds = load_dataset("jpawan33/fkr30k-image-captioning-dataset")
+        self.ds=ds["train"]
+        self.image_size=image_size
+        self.transform = transforms.Compose([
+            transforms.Resize(self.image_size),
+            transforms.CenterCrop(self.image_size),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.5], std=[0.5])
+            ])
+        for idx in range(length):
+            idx=idx+start_index
+            self.data.append(self.transform(self.ds[idx]["image"].convert("RGB")))
+    def __len__(self):
+        return len(self.data)
+    def __getitem__(self, idx):
+        # データ1とデータ2をセットで返す
+        return self.data[idx]

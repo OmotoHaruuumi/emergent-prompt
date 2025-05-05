@@ -1,24 +1,24 @@
 import torch
 import torch.nn as nn
-from torch.nn import functional as nnf
 import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
-from enum import Enum
-from transformers import GPT2Tokenizer, GPT2LMHeadModel, AdamW, get_linear_schedule_with_warmup
+from transformers import GPT2LMHeadModel
 from transformers import CLIPVisionModelWithProjection
-from tqdm import tqdm
-import os
-import pickle
-import sys
-import argparse
-import json
-from typing import Tuple, Optional, Union
-from utils import Logger, TransformerModel,gumbel_softmax, straight_through_discretize,MyCLIPTextModel,embed_special_token,ClipVisionAdapter
+from utils import gumbel_softmax, straight_through_discretize,MyCLIPTextModel,embed_special_token
+
+    
+class ImageEncoder(nn.Module):
+    def __init__(self):
+        super(ImageEncoder).__init__()
+        self.model = CLIPVisionModelWithProjection.from_pretrained("openai/clip-vit-large-patch14")
+    def forward(self,image):
+        with torch.no_grad():
+            image_latent = self.model(image).image_embeds
+        return image_latent
 
 #画像エンコーダーとテキストデコーダーを接続
-class MLP(nn.Module):
+class Adapter(nn.Module):
     def __init__(self,sizes,bias=True,act=nn.Tanh):
-        super(MLP,self).__init__()
+        super(Adapter,self).__init__()
         layers = []
         for i in range(len(sizes)-1):
             layers.append(nn.Linear(sizes[i],sizes[i+1],bias=bias))
@@ -32,15 +32,7 @@ class MLP(nn.Module):
     def forward(self,x):
         prefix_embeds=self.model(x).view(-1,self.prefix_length,self.gpt_embedding_size)
         return prefix_embeds
-    
-class ImageEncoder(nn.Module):
-    def __init__(self):
-        super(ImageEncoder).__init__()
-        self.model = CLIPVisionModelWithProjection.from_pretrained("openai/clip-vit-large-patch14")
-    def forward(self,image):
-        with torch.no_grad():
-            image_latent = self.model(image).image_embeds
-        return image_latent
+
 
 class TextDecoder(nn.Module):
     def __init__(self,max_length):
@@ -101,15 +93,11 @@ class Translator(nn.Module):
         return clip_embeds
 
 class TeacherLLM(nn.Module):
-    def __init__(self,max_length,uni=False,Bi=False):
+    def __init__(self,max_length,mode="all"):
         super(TeacherLLM).__init__()
         self.model = GPT2LMHeadModel.from_pretrained("gpt2")
         self.max_length=max_length
-        self.mode="all"
-        if uni==True:
-            self.mode="uni"
-        if Bi ==True:
-            self.mode="bi"
+        self.mode=mode
     def load(self,url):
         self.model.load_state_dict(torch.load(url,weight_only=True))
     def forward(self,probs,message_ids,caption_embeds):
@@ -148,3 +136,7 @@ class TextEncoder(nn.Module):
             return output_embeds.last_hidden_state
 
 
+def negative_cosine_similarity(x, y):
+        x = F.normalize(x, dim=-1)
+        y = F.normalize(y, dim=-1)
+        return - (x * y).sum(dim=-1).mean()

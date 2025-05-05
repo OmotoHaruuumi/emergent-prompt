@@ -28,8 +28,8 @@ def args_define():
     parser.add_argument('--latent-dim', type=int, default=768 ,metavar='ld', help='dimension of image encoder text encoder output')
     parser.add_argument('-hidden-dim', type=int, default=2048 ,metavar='hd', help='dimension of ')
     parser.add_argument('--epochs', type=int, default=10,metavar='N', help='No of epochs of naming game [default: 100]')
-    parser.add_argument('--batch_size', type=int, default=8, metavar='N', help='batch size of model [default: 64]')
-    parser.add_argument('--dataset_size', type=int, default=50, metavar='ds', help='dataset size of model max[81783]')
+    parser.add_argument('--batch_size', type=int, default=16, metavar='N', help='batch size of model [default: 64]')
+    parser.add_argument('--dataset_size', type=int, default=5000, metavar='ds', help='dataset size of model max[81783]')
     parser.add_argument('--save_every', type=int, default=1 ,metavar='se',help='number of epochs which save model [default:10]')
     parser.add_argument('--learning-rate', type=float, default=5e-6 ,metavar='LR', help='learning rate [default: 1e-3]')
     parser.add_argument('--gpt-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt", help='directory for pretrained gpt models')
@@ -40,7 +40,7 @@ def args_define():
     parser.add_argument('--prefix',type=str,default='trained-model',help='prefix for saved filenames')
     parser.add_argument('--out-dir', default='/root/emergent-prompt/save-output')
     parser.add_argument('--out-txt',default='/root/emergent-prompt/save-txt')
-    parser.add_argument('--setting-name',default='Debbug')
+    parser.add_argument('--setting-name',default='LLMPrior')
     return parser.parse_args()
 
 

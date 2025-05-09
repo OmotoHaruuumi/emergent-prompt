@@ -89,7 +89,6 @@ class SimSiamVLM(nn.Module):
             teacher_logit = teacher_logit - teacher_logit.max(dim=-1, keepdim=True)[0]
             #teacher logit min is minus because teacher max became 0
             if messages_ids is not None:
-                logit[:,messages_ids] = logit.min(dim=-1, keepdim=True)[0]
                 teacher_logit[:,messages_ids] = teacher_logit.min(dim=-1, keepdim=True)[0]
             if self.training:
                 z_sampled_soft = gumbel_softmax(logit,1.0)

@@ -1,10 +1,12 @@
 import torch
 import torch.nn.functional as F
 import argparse
+from torchmetrics.multimodal import CLIPScore
 import datetime
 from pathlib import Path
 from SimSiamCaption import SimSiamVLM
 from torch.utils.data import DataLoader
+from torchvision import transforms
 import sys
 from tempfile import mkdtemp
 import torch.optim as optim
@@ -12,11 +14,10 @@ from tqdm import tqdm
 import os
 from dataloader import trainDataset_single,valDataset_single
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
-import math
 from Function import ImageEncoder,Adapter,TextDecoder,TeacherLLM,Translator,TextEncoder,negative_cosine_similarity
-from diffusers import StableDiffusionPipeline,AutoencoderKL, DDPMScheduler, UNet2DConditionModel
+from diffusers import StableDiffusionPipeline
 from diffusers.optimization import get_scheduler
-
+from transformers import GPT2Tokenizer
 
 def args_define():
     parser = argparse.ArgumentParser(description='Unsupervised VLM training')
@@ -30,7 +31,7 @@ def args_define():
     parser.add_argument('--latent_dim', type=int, default=768 ,metavar='ld', help='dimension of image encoder text encoder output')
     parser.add_argument('--prefix_length', type=int, default=10 , help='gpt prefix length')
     parser.add_argument('--epochs', type=int, default=3,metavar='N', help='No of epochs of naming game [default: 100]')
-    parser.add_argument('--batch_size', type=int, default=24, metavar='N', help='batch size of model [default: 64]')
+    parser.add_argument('--batch_size', type=int, default=16, metavar='N', help='batch size of model [default: 64]')
     parser.add_argument('--dataset_size', type=int, default=100, metavar='ds', help='dataset size of model max[81783]')
     parser.add_argument('--save_every', type=int, default=2 ,metavar='se',help='number of epochs which save model [default:10]')
     parser.add_argument('--learning_rate', type=float, default=1e-5 ,metavar='LR', help='learning rate [default: 1e-3]')
@@ -58,10 +59,10 @@ def main():
     prior_decoder = TeacherLLM(max_length=args.word_length,mode=args.LLM_mode)
     translator=Translator(latent_dim=args.latent_dim)
     text_encoder = TextEncoder()
+    gpt_tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
 
     adapter.load(args.clip_to_gpt_path)
     text_decoder.load(args.gpt_path)
-    prior_decoder.load(args.gpt_path)
     translator.load(args.translator_path)
 
     # モデルをLoRAトレーニング用に準備
@@ -89,6 +90,7 @@ def main():
     text_encoder.to(device)
     if args.LLM_prior:
         prior_decoder.to(device)
+    clip_score_metric = CLIPScore().to(device)
 
     param_group =[{"params":text_decoder.parameters(),"lr":args.learning_rate}]
     print(param_group)
@@ -106,28 +108,31 @@ def main():
         unet.to(device)
         noise_scheduler=pipe.scheduler
     
-    dataset=trainDataset_single(length=100)
-    val_dataset=valDataset_single(length=100)
+    dataset=trainDataset_single(length=args.dataset_size)
+    val_dataset=valDataset_single(length=3)
 
     data_size = len(dataset)
     print(f"dataset length is {data_size}")
     step_size = (data_size//args.batch_size)+1
 
     dataloader = DataLoader(dataset,batch_size=args.batch_size,shuffle=True) 
-    val_dataloader = DataLoader(val_dataset,batch_size=args.batch_size,shuffle=True) 
+    if args.debug:
+        val_dataloader = DataLoader(val_dataset,batch_size=1,shuffle=False) 
+    else:
+        val_dataloader = DataLoader(val_dataset,batch_size=args.batch_size,shuffle=True) 
 
     loss_history=[]
     recon_history=[]
     kld_history=[]
-    val_recon_history=[]
+    val_score_history=[]
 
     for epoch in tqdm(range(args.epochs)):
         print("epoch "+str(epoch)+" start")
+        text_decoder.train()
         train_loss=0.0
         recon_loss=0.0
         kld_loss=0.0
         for data ,sd_data in dataloader:
-            text_decoder.train()
             data=data.to(device)
             image_embed = image_encoder(data)
             prefix=adapter(image_embed)
@@ -180,17 +185,46 @@ def main():
             if not args.debug:
                 text_decoder.model.save_pretrained(os.path.join(args.out_dir,f"{args.prefix}-lora-{epoch:03d}"))
                 print("LoRA adapter saved")
+        
+        print("eval start")
+        # CLIPScoreの初期化
+        clip_score_metric.reset()
+        text_decoder.eval()
+        with torch.no_grad():
+            for val_data in val_dataloader:
+                val_data = val_data.to(device)
+                images_for_clip_score = (val_data.clamp(0, 1) * 255).to(torch.uint8)
+                image_embed = image_encoder(val_data)
+                prefix = adapter(image_embed)
+                message_ids,_,_ = text_decoder(prefix)
+                generated_captions_batch = []
+                for i in range(len(message_ids)):
+                    message = message_ids[i:i+1,:]
+                    output_list = list(message.squeeze().cpu().numpy())
+                    messages=gpt_tokenizer.decode(output_list)
+                    if args.debug:
+                        print("generated message")
+                        print(messages)
+                    generated_captions_batch.append(messages)
+                clip_score_metric.update(images_for_clip_score, generated_captions_batch)
+        final_avg_clip_score_tensor = clip_score_metric.compute()
+        final_avg_clip_score = final_avg_clip_score_tensor.item() 
+        val_score_history.append(final_avg_clip_score)
+        print(f' Validation Score: {val_score_history[-1]:.4f}')
     
     if not args.debug:
         torch.save(loss_history,os.path.join(args.out_dir, "loss_history.pt"),)
         torch.save(kld_history,os.path.join(args.out_dir, "kld_history.pt"),)
         torch.save(recon_history,os.path.join(args.out_dir, "recon_history.pt"),)
+        torch.save(val_score_history,os.path.join(args.out_dir, "val_history.pt"),)
     print("total loss history")
     print(loss_history)
     print("kld loss history")
     print(kld_history)
     print("recon loss history ")
     print(recon_history)
+    print("val history ")
+    print(val_score_history)
 
 if __name__ == "__main__":
     main()

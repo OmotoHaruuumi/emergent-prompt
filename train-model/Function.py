@@ -102,8 +102,6 @@ class TeacherLLM(nn.Module):
         self.model = GPT2LMHeadModel.from_pretrained("gpt2")
         self.max_length=max_length
         self.mode=mode
-    def load(self,url):
-        self.model.load_state_dict(torch.load(url,weight_only=True))
     def forward(self,probs,message_ids,caption_embeds):
         teacher_probs = []
         with torch.no_grad():

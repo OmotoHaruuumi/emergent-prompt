@@ -203,3 +203,4 @@ class ClipVisionAdapter(nn.Module):
         h = self.mlp(h)
         # Residual connection (x + h)
         return (1-self.ratio)*x + self.ratio*h
+

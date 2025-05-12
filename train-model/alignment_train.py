@@ -31,7 +31,7 @@ def args_define():
     parser.add_argument('--batch_size', type=int, default=16, metavar='N', help='batch size of model [default: 64]')
     parser.add_argument('--dataset_size', type=int, default=5000, metavar='ds', help='dataset size of model max[81783]')
     parser.add_argument('--save_every', type=int, default=1 ,metavar='se',help='number of epochs which save model [default:10]')
-    parser.add_argument('--learning-rate', type=float, default=5e-6 ,metavar='LR', help='learning rate [default: 1e-3]')
+    parser.add_argument('--learning-rate', type=float, default=1e-5 ,metavar='LR', help='learning rate [default: 1e-3]')
     parser.add_argument('--gpt-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt", help='directory for pretrained gpt models')
     parser.add_argument('--clip-to-gpt-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt", help='directory for pretrained gpt adapter models')
     parser.add_argument('--translator-path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt", help='directory for pretrained translator models')

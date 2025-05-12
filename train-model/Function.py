@@ -112,12 +112,12 @@ class TeacherLLM(nn.Module):
                 elif i==1:
                     teacher_outputs = self.model(inputs_embeds=caption_embeds[:,:i,:])
                 else:
-                    if self.mode=="all":
-                        teacher_outputs = self.model(inputs_embeds=caption_embeds[:,:i,:])
                     if self.mode=="uni":
                         teacher_outputs = self.model(inputs_embeds=caption_embeds[:,i-1:i,:])
                     if self.mode=="bi":
                         teacher_outputs = self.model(inputs_embeds=caption_embeds[:,i-2:i,:])
+                    else:
+                        teacher_outputs = self.model(inputs_embeds=caption_embeds[:,:i,:])
                 if i !=0:
                     teacher_logit=teacher_outputs.logits[:,-1,:]
                     teacher_logit = teacher_logit - teacher_logit.max(dim=-1, keepdim=True)[0]

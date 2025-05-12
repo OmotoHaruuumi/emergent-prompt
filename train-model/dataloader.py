@@ -95,7 +95,7 @@ class valDataset(Dataset):
         return img1 , aug_image1 ,aug_image2
 
 class trainDataset_single(Dataset):
-    def __init__(self,image_size=224,sd_image_size=256,length=5000):
+    def __init__(self,image_size=224,sd_image_size=384,length=5000):
         length=min(81783,length)
         length=max(2,length)
         ds = load_dataset("jpawan33/fkr30k-image-captioning-dataset")
@@ -133,7 +133,7 @@ class valDataset_single(Dataset):
         self.ds=ds["train"]
         self.image_size=image_size
         self.data=[]
-        self.sd_data=[]
+        self.start_index = start_index
         self.transform = transforms.Compose([
             transforms.Resize(self.image_size),
             transforms.CenterCrop(self.image_size),
@@ -148,3 +148,7 @@ class valDataset_single(Dataset):
     def __getitem__(self, idx):
         # データ1とデータ2をセットで返す
         return self.data[idx]
+    def get_samples(self):
+        return self.data[0],self.data[1],self.data[2]
+    def get_image_samples(self):
+        return self.ds[0+self.start_index]["image"],self.ds[1+self.start_index]["image"],self.ds[2+self.start_index]["image"]

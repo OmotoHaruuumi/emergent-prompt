@@ -23,20 +23,20 @@ from PIL import Image
 
 def args_define():
     parser = argparse.ArgumentParser(description='Unsupervised VLM training')
-    parser.add_argument('--use_diffusion',type=bool,default=True,help='reconstruct image or not')
-    parser.add_argument('--use_prior',type=bool,default=False,help='use prior distribution or not')
-    parser.add_argument('--kld_loss_beta',type=float,default=0.0001,help='kld loss beta if not using kld loss this parameter is 0')
+    parser.add_argument('--use_diffusion',type=bool,default=False,help='reconstruct image or not')
+    parser.add_argument('--use_prior',type=bool,default=True,help='use prior distribution or not')
+    parser.add_argument('--kld_loss_beta',type=float,default=0.001,help='kld loss beta if not using kld loss this parameter is 0')
     parser.add_argument('--LLM_prior',type=bool,default=True,help='prior distribution : LLM or Uniform distribution')
     parser.add_argument('--LLM_mode',type=str,default="all",help="set LM mode,you can select from [all,uni,bi]")
     parser.add_argument('--word_length', type=int, default=20, metavar='L', help='max word length ')
     parser.add_argument('--dictionary_size', type=int, default=50257, metavar='L', help='dictionary size (default: 100)')
     parser.add_argument('--latent_dim', type=int, default=768 ,metavar='ld', help='dimension of image encoder text encoder output')
     parser.add_argument('--prefix_length', type=int, default=10 , help='gpt prefix length')
-    parser.add_argument('--epochs', type=int, default=10,metavar='N', help='No of epochs of naming game [default: 100]')
-    parser.add_argument('--batch_size', type=int, default=10, metavar='N', help='batch size of model [default: 64]')
+    parser.add_argument('--epochs', type=int, default=5,metavar='N', help='No of epochs of naming game [default: 100]')
+    parser.add_argument('--batch_size', type=int, default=8, metavar='N', help='batch size of model [default: 64]')
     parser.add_argument('--dataset_size', type=int, default=5000, metavar='ds', help='dataset size of model max[81783]')
     parser.add_argument('--save_every', type=int, default=2 ,metavar='se',help='number of epochs which save model [default:10]')
-    parser.add_argument('--learning_rate', type=float, default=5e-6 ,metavar='LR', help='learning rate [default: 1e-3]')
+    parser.add_argument('--learning_rate', type=float, default=1e-5 ,metavar='LR', help='learning rate [default: 1e-5]')
     parser.add_argument('--gpt_path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt", help='directory for pretrained gpt models')
     parser.add_argument('--clip_to_gpt_path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt", help='directory for pretrained gpt adapter models')
     parser.add_argument('--translator_path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt", help='directory for pretrained translator models')
@@ -137,6 +137,7 @@ def main():
         recon_loss=0.0
         kld_loss=0.0
         epoch_start_time = time.time()
+        beta = args.kld_loss_beta * min(1.0,(epoch+1)/args.epochs)
 
         for i, (data ,sd_data) in enumerate(dataloader):
             data=data.to(device)
@@ -152,7 +153,7 @@ def main():
                     prior_probs = torch.full_like(probs,1.0/vocab_size)
                     log_prior_probs = prior_probs.log()
                 kld = F.kl_div(log_prior_probs,probs,reduction="batchmean")
-                loss_kld = kld * args.kld_loss_beta
+                loss_kld = kld * beta
             else:
                 loss_kld=torch.tensor(0.0)
             if args.use_diffusion:

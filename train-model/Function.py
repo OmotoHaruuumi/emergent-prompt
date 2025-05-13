@@ -51,14 +51,11 @@ class TextDecoder(nn.Module):
             outputs = self.model(inputs_embeds=prefix_embeds)
             logit = outputs.logits[:,-1,:] #最後の一文字に続く単語の確率分布を予測する
             logit = logit - logit.max(dim=-1, keepdim=True)[0]
-            #teacher logit min is minus because teacher max became 0
-            if i!=0:
-                logit[:,messages_ids] = logit.min(dim=-1, keepdim=True)[0]
             if self.training:
                 z_sampled_soft = gumbel_softmax(logit,1.0)
             else:
                 z_sampled_soft = F.softmax(logit,dim=-1)
-            probs.append(z_sampled_soft)    
+            probs.append(F.softmax(logit,dim=-1))    
             z_sampled_onehot, next_word = straight_through_discretize(z_sampled_soft)
             #gpt2_wteは語彙数×データの次元の形状をした行列,next_token_embed[batch,1,768]
             next_token_embed = (z_sampled_onehot @  self.weight).unsqueeze(1)
@@ -68,7 +65,7 @@ class TextDecoder(nn.Module):
                 messages_ids = torch.cat((messages_ids,next_word),dim=1)
             prefix_embeds = torch.cat((prefix_embeds,next_token_embed),dim=1)
         #最初の10要素は画像の埋め込み表現なので除外する
-        outputs_embeds = prefix_embeds[:,10:,]
+        outputs_embeds = prefix_embeds[:,10:,:]
         probs = torch.stack(probs).permute(1,0,2)
         return messages_ids,outputs_embeds,probs
 
@@ -121,7 +118,12 @@ class TeacherLLM(nn.Module):
                 if i !=0:
                     teacher_logit=teacher_outputs.logits[:,-1,:]
                     teacher_logit = teacher_logit - teacher_logit.max(dim=-1, keepdim=True)[0]
-                    teacher_logit[:,message_ids[:,:i-1]] = teacher_logit.min(dim=-1, keepdim=True)[0]
+                    
+                    min_val = teacher_logit.min(dim=-1, keepdim=True)[0]
+                    mask = torch.zeros_like(teacher_logit).bool()
+                    for b in range(teacher_logit.size(0)):
+                        mask[b].scatter_(0, message_ids[b], True)
+                    teacher_logit = torch.where(mask, min_val, teacher_logit)
                     teacher_soft = F.log_softmax(teacher_logit,dim=-1)
                     teacher_probs.append(teacher_soft)
             teacher_probs = torch.stack(teacher_probs).permute(1,0,2)

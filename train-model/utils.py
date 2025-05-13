@@ -66,7 +66,7 @@ def display_losses(loss1, loss2=None, save_path=None):
         plt.show()
 
 
-def gumbel_softmax(logits, temperature=0.5):
+def gumbel_softmax(logits, temperature=0.3):
     g = torch.distributions.gumbel.Gumbel(torch.zeros_like(logits), torch.ones_like(logits))
     G = g.sample()
     return F.softmax((logits + G) / temperature, dim=-1)

@@ -82,7 +82,7 @@ class SimSiamVLM(nn.Module):
                 if i ==0:
                     teacher_outputs = outputs
                 else:
-                    teacher_outputs = self.prior(inputs_embeds=prefix_embeds[:,10:,]) 
+                    teacher_outputs = self.prior(inputs_embeds=prefix_embeds[:,10:,:]) 
             logit = outputs.logits[:,-1,:] #最後の一文字に続く単語の確率分布を予測する
             teacher_logit = teacher_outputs.logits[:,-1,:]
             logit = logit - logit.max(dim=-1, keepdim=True)[0]

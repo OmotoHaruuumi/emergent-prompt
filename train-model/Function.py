@@ -50,9 +50,14 @@ class TextDecoder(nn.Module):
         for i in range(self.max_length):
             outputs = self.model(inputs_embeds=prefix_embeds)
             logit = outputs.logits[:,-1,:] #最後の一文字に続く単語の確率分布を予測する
+            if torch.isnan(outputs.logits).any():
+                print("NaN detected in outputs.logits!")
+                print(outputs.logits)
+                exit()
             logit = logit - logit.max(dim=-1, keepdim=True)[0]
             if self.training:
                 z_sampled_soft = gumbel_softmax(logit,1.0)
+                #z_sampled_soft = F.softmax(logit,dim=-1)
             else:
                 z_sampled_soft = F.softmax(logit,dim=-1)
             probs.append(F.softmax(logit,dim=-1))    
@@ -99,6 +104,8 @@ class TeacherLLM(nn.Module):
         self.model = GPT2LMHeadModel.from_pretrained("gpt2")
         self.max_length=max_length
         self.mode=mode
+    def load(self,url):
+        self.model.load_state_dict(torch.load(url,weights_only=True))
     def forward(self,probs,message_ids,caption_embeds):
         teacher_probs = []
         with torch.no_grad():

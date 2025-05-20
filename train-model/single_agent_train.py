@@ -4,11 +4,8 @@ import argparse
 from torchmetrics.multimodal import CLIPScore
 import time
 from pathlib import Path
-from SimSiamCaption import SimSiamVLM
 from torch.utils.data import DataLoader
-from torchvision import transforms
 import sys
-from tempfile import mkdtemp
 import torch.optim as optim
 from tqdm import tqdm
 import os
@@ -24,19 +21,19 @@ from PIL import Image
 def args_define():
     parser = argparse.ArgumentParser(description='Unsupervised VLM training')
     parser.add_argument('--use_diffusion',type=bool,default=False,help='reconstruct image or not')
-    parser.add_argument('--use_prior',type=bool,default=True,help='use prior distribution or not')
-    parser.add_argument('--kld_loss_beta',type=float,default=0.001,help='kld loss beta if not using kld loss this parameter is 0')
+    parser.add_argument('--use_prior',type=bool,default=False,help='use prior distribution or not')
+    parser.add_argument('--kld_loss_beta',type=float,default=0.0002,help='kld loss beta if not using kld loss this parameter is 0')
     parser.add_argument('--LLM_prior',type=bool,default=True,help='prior distribution : LLM or Uniform distribution')
     parser.add_argument('--LLM_mode',type=str,default="all",help="set LM mode,you can select from [all,uni,bi]")
     parser.add_argument('--word_length', type=int, default=20, metavar='L', help='max word length ')
     parser.add_argument('--dictionary_size', type=int, default=50257, metavar='L', help='dictionary size (default: 100)')
     parser.add_argument('--latent_dim', type=int, default=768 ,metavar='ld', help='dimension of image encoder text encoder output')
     parser.add_argument('--prefix_length', type=int, default=10 , help='gpt prefix length')
-    parser.add_argument('--epochs', type=int, default=5,metavar='N', help='No of epochs of naming game [default: 100]')
-    parser.add_argument('--batch_size', type=int, default=8, metavar='N', help='batch size of model [default: 64]')
-    parser.add_argument('--dataset_size', type=int, default=5000, metavar='ds', help='dataset size of model max[81783]')
-    parser.add_argument('--save_every', type=int, default=2 ,metavar='se',help='number of epochs which save model [default:10]')
-    parser.add_argument('--learning_rate', type=float, default=1e-5 ,metavar='LR', help='learning rate [default: 1e-5]')
+    parser.add_argument('--epochs', type=int, default=1,metavar='N', help='No of epochs of naming game [default: 100]')
+    parser.add_argument('--batch_size', type=int, default=4, metavar='N', help='batch size of model [default: 64]')
+    parser.add_argument('--dataset_size', type=int, default=100, metavar='ds', help='dataset size of model max[81783]')
+    parser.add_argument('--save_every', type=int, default=1 ,metavar='se',help='number of epochs which save model [default:10]')
+    parser.add_argument('--learning_rate', type=float, default=5e-6 ,metavar='LR', help='learning rate [default: 1e-5]')
     parser.add_argument('--gpt_path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_gpt.pt", help='directory for pretrained gpt models')
     parser.add_argument('--clip_to_gpt_path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_mlp.pt", help='directory for pretrained gpt adapter models')
     parser.add_argument('--translator_path', type=str, default="/root/emergent-prompt/train-model/pretrained-model/trained_translator_linear9.pt", help='directory for pretrained translator models')
@@ -92,6 +89,7 @@ def main():
     translator.to(device)
     text_encoder.to(device)
     if args.LLM_prior:
+        prior_decoder.load(args.gpt_path)
         prior_decoder.to(device)
     clip_score_metric = CLIPScore().to(device)
 
@@ -110,7 +108,7 @@ def main():
         noise_scheduler=pipe.scheduler
 
     dataset=trainDataset_single(length=args.dataset_size)
-    val_dataset=valDataset_single(length=1000)
+    val_dataset=valDataset_single(length=10)
     val_data1,val_data2,val_data3 = val_dataset.get_samples()
     val_images = torch.stack([val_data1,val_data2,val_data3])
     val_images=val_images.to(device)
@@ -236,12 +234,12 @@ def main():
                 print(messages)
 
     if not args.debug:
-        torch.save(loss_history,os.path.join(args.out_dir, "loss_history.pt"),)
-        torch.save(kld_history,os.path.join(args.out_dir, "kld_history.pt"),)
-        torch.save(recon_history,os.path.join(args.out_dir, "recon_history.pt"),)
-        torch.save(val_score_history,os.path.join(args.out_dir, "val_history.pt"),)
-        torch.save(inference_time,os.path.join(args.out_dir, "epoch_time.pt"),)
-        torch.save(used_memory,os.path.join(args.out_dir, "memory_use.pt"),)
+        torch.save(loss_history,os.path.join(args.out_dir,args.setting_name, "loss_history.pt"),)
+        torch.save(kld_history,os.path.join(args.out_dir,args.setting_name, "kld_history.pt"),)
+        torch.save(recon_history,os.path.join(args.out_dir,args.setting_name, "recon_history.pt"),)
+        torch.save(val_score_history,os.path.join(args.out_dir,args.setting_name, "val_history.pt"),)
+        torch.save(inference_time,os.path.join(args.out_dir,args.setting_name, "epoch_time.pt"),)
+        torch.save(used_memory,os.path.join(args.out_dir,args.setting_name, "memory_use.pt"),)
     print("total loss history")
     print(loss_history)
     print("kld loss history")

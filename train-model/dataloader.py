@@ -95,7 +95,7 @@ class valDataset(Dataset):
         return img1 , aug_image1 ,aug_image2
 
 class trainDataset_single(Dataset):
-    def __init__(self,image_size=224,sd_image_size=256,length=5000):
+    def __init__(self,image_size=224,sd_image_size=512,length=5000):
         length=min(81783,length)
         length=max(2,length)
         ds = load_dataset("jpawan33/fkr30k-image-captioning-dataset")
